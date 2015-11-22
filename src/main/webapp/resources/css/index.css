@@ -1,0 +1,279 @@
+@charset "utf-8";
+/* 移动端定义字体的代码 */
+body{font-family: '微软雅黑', Tahoma, Geneva, sans-serif;Helvetica}
+body,html{ min-height: 100%; height:100%;-webkit-user-select:none;-moz-user-select:none;}
+/* 定义小图标 */
+.icon{ display:inline-block; margin-right: 0.05rem; width: 0.2rem; height: 0.2rem; background:url(img/rz_icon_coffee.png) no-repeat center center; background-size: cover;}
+.rz_i{ background-position:0 0;}
+.num_i{ background-position:-0.22rem 0;}
+.u-b_b{ border-bottom: 1px solid #dcdcdc;}
+.u-b_t{ border-top: 1px solid #dcdcdc;}
+
+/* 定义兼职类型图标 */
+.type{ display:block; width:0.7rem; height:0.7rem; position:absolute; top:0.26rem; left:0.3rem;}
+.kj:before{ content: ""; position: absolute; right: 0; bottom: 0; width: 0.32rem; height: 0.32rem; background: url("img/kj.png") no-repeat; background-size: 0.32rem; }
+.type:after{ display:block; width:0.7rem; height:0.7rem; line-height:0.7rem; text-align:center; font-style:normal; color:#FFFFFF; font-size:0.22rem; border-radius:0.35rem;}
+/* 19种兼职类型，20151109 更新完善 */
+.lsg:after{ background:#247dac; font-size:0.18rem; content:"临时工";}
+.dy:after{ background:#9cd332; content:"调研";}
+.sx:after{ background:#27b394; content:"实习";}
+.mt:after{ background:#ff89ff; content:"模特";}
+.yc:after{ background:#9d8ef5; content:"演出";}
+.pd:after{ background:#eb5353; content:"派单";}
+.ly:after{ background:#fa8334; content:"礼仪";}
+.sj:after{ background:#57b6ed; content:"设计";}
+.wy:after{ background:#958bca; content:"文员";}
+.xs:after{ background:#f2cc1c; content:"销售";}
+.cx:after{ background:#cb699c; content:"促销";}
+.jj:after{ background:#5691e8; content:"家教";}
+.kf:after{ background:#e85682; content:"客服";}
+.xn:after{ background:#6bba48; content:"校内";}
+.fwy:after{ background:#b59f8a; font-size:0.18rem; content:"服务员";}
+.fy:after{ background:#f29f33; content:"翻译";}
+.qt:after{ background:#5fb7a6; content:"其他";}
+.scy:after{ background:#ff8875; font-size:0.18rem; content:"送餐员";}
+.ab:after{ background:#568db2; content:"安保";}
+.m-qiye{ padding: 0.3rem 0 0.2rem 0.3rem; background: #C3F3FC;}
+.m-qiye dl{ height:1.04rem; position: relative;  padding-left: 1.25rem;}
+.m-qiye dt{ width: 1.04rem; position: absolute;top: 0;left: 0;}
+.m-qiye dt img{ width: 100%;}
+.m-qiye dd{ padding-top: 0.2rem; color: #894930;}
+.m-qiye dd h2{ font-size: 0.3rem; margin-bottom: 0.2rem; overflow: hidden; text-overflow: ellipsis;white-space: nowrap;}
+.m-qiye dd p{ font-size: 0.20rem;  }
+.m-qiye dd p span{ margin-right: 0.2rem;}
+.m-qiye .btn{ display: block; width: 1.5rem; height: 0.5rem; line-height: 0.5rem; position: absolute;bottom: 0.2rem;
+    right: 0; background: #ff790b;  text-align: center; font-size: 0.22rem; color: #fff;}
+.m-qiye .btn:before{ content: ""; display: block; width: 0.5rem; height: 0.5rem; border-radius: 50%; background: #ff790b;
+position: absolute; top: 0px; left: -0.25rem;}
+
+/* 兼职列表为空时  */
+.m-nolist{ width: 2rem; height: 2rem; margin: 2rem auto; text-align: center; font-size: 0.32rem; color: #ccc;}
+.m-nolist img{ width: 80%; margin-bottom: 0.1rem; }
+/* 兼职列表 s*/
+.m-list{ background: #fff;overflow: hidden;}
+.m-list>li{ padding:0.27rem 0 0.27rem 1.5rem;  border-bottom: 1px solid #ccc; position: relative; overflow: hidden;}
+.m-list .tit{ font-size: 0.30rem; color: #555; font-weight: 100; margin-bottom:0.1rem;  overflow: hidden; text-overflow: ellipsis;white-space: nowrap; }
+.m-list ol li{ float:left; color:#919191; font-size:0.24rem; line-height: 0.3rem; padding-top:0.05rem; margin-right:0.15rem;}
+.m-list ol i{ font-size: 0px; background:url(img/list_icon.png) no-repeat; background-size:cover;  display:block; width:0.24rem; height:0.24rem; line-height: 0.24rem; float:left; margin:0.04rem 0.04rem 0 0;}
+.m-list .area{ background-position:0 0;}
+.m-list .date{ background-position:-0.24rem 0;}
+.m-list .visit{ background-position:-0.48rem 0;}
+.m-list .unit_icn{background-position: right 0;
+    background-image: url(img/list_icon2.png);}
+/* 兼职详情页 */
+.m-xqcon{ background: #fff;}
+.m-xqtop{  height: 0.9rem; border-bottom: 1px solid #ccc; background-color: #fff;}
+.m-xqtop .last{position: absolute; top: 0.25rem ; left:0.3rem; width: 0.18rem; font-family: "宋体"; font-size: 0.24rem; font-weight: bold; color: #fe7418;}
+.m-xqtop .last img{ width: 100%;}
+.m-xqtop h2{ width: 60%;  position: absolute; top:0.25rem; left: 20%;  overflow: hidden; text-align: center; font-weight: 400; font-size: 0.32rem; color: #454545;overflow: hidden; text-overflow: ellipsis;white-space: nowrap;}
+.m-xqtop .fx{position: absolute; right:0.25rem; top: 0.25rem; height: 0.3rem; width: 0.3rem; background: url("img/fx.png")  no-repeat ; background-size: cover; }
+.m-xqtop .m-login{ position: absolute; right: 0.1rem; top: 0.1rem;}
+
+
+.m-xqtit{ border-bottom: 1px solid #ccc; padding: 0.4rem 0.2rem 0.2rem 0.3rem; }
+.m-xqtit .tit{ color: #ea3818;}
+
+.m-jzxq{padding: 0.35rem;border-bottom: 0.17rem solid #f2f2f2;}
+.m-jzxq li{ margin-bottom: 0.1rem; font-size:0.24rem; line-height: 0.3rem; color: #9c9c9c;padding-left: 5em;text-indent: -5em;}
+.m-jzxq li span{ color: #3f3f3f;}
+.m-jzxq li a{  color: #3898d0; text-decoration: underline;  line-height: 0.4rem;}
+
+.m-jzxp_con{padding: 0.35rem;border-bottom: 0.17rem solid #f2f2f2; }
+.m-jzxp_con .tit{ margin-bottom: 0.25rem; padding-left: 0.1rem; border-left: 0.05rem solid #fe7418; font-weight: 400; font-size: 0.22rem; color: #fe7418;}
+.m-jzxp_con .con{ font-size: 0.24rem;line-height: 0.36rem;margin-bottom: 0.25rem;word-break: break-all;  white-space: pre-wrap;word-wrap: break-word; }
+.m-jzxp_con .con br{ margin-bottom: 5px;}
+.m-jzxp_con .ts{ font-size: 0.22rem;}
+
+.m-jzabout{padding: 0.35rem; font-size: 0.24rem; line-height: 0.48rem; border-bottom: 1px solid #ccc; position: relative;}
+.m-jzabout address{ width: 60%; float: left; padding-left:5em;  text-indent: -5em; }
+.m-jzabout .map{ width: 0.55rem;position: absolute; right: 0.55rem; top: 30%;}
+.m-jzabout .map img{ width: 100%;}
+
+.m-jxcall{ padding: 0.35rem; position: relative;}
+.m-jxcall li{ font-size: 0.24rem; line-height:0.4rem; color: #3f3f3f; }
+.m-jxcall li.ts{ font-size:0.18rem; line-height: 0.2rem ; color: #e93110; }
+.m-jxcall .call,.m-jxcall .sns {width: 0.8rem; padding: 0.3rem 0.2rem; border-left: 1px solid #ccc; position: absolute; right: 0;  top: 15%;}
+.m-jxcall .sns{ right: 1.2rem;}
+.m-jxcall .call img,.m-jxcall .call img{ width: 100%}
+
+.m-adxz{ width: 100%; font-size: 0px;}
+.m-adxz img{ width: 100%;}
+
+/* 报名弹窗 */
+._alert{ width: 80%;margin-left:-40%;}
+#apply_alt .img_bm{ position:relative; display:inline-block; margin-bottom:0.35rem;}
+#apply_alt .img_bm .bd{ border:4px solid #333; border-radius:20px; padding:15px 30px; color:#fd711c; font-weight:bold;
+    background:#fff; font-size:26px; display:inline-block; position:relative;}
+#apply_alt .img_bm .tail{ display:block; width:20px; height:10px; border:4px solid #333; border-left-color:#fff;
+    border-top-color:#fff; position:absolute; bottom:-6px; right:20px; background:#fff; -webkit-transform:skewY(30deg);
+    border-radius:5px;}
+
+/* 完善简历弹窗 */
+#jianli_alt{}
+
+/* 分享弹出层*/
+.m-fxbox{ z-index: 99; width: 100%; height: 100rem; position: fixed; background: rgba(0,0,0,0.8)}
+.m-fxbox img{ width: 80%; }
+/* 企业简介页面*/
+.m-qiyejj,.m-onlinejx{ padding: 0.2rem 0.15rem;border-bottom: 0.17rem solid #f2f2f2; background: #fff;  }
+.m-qiyejj h3,.m-onlinejx .m-onlinejxtit{ position: relative;  padding-left: 0.2rem;padding-bottom: 0.2rem; color: #454545; font-size: 0.25rem; font-weight: 100 }
+.m-qiyejj h3:before,.m-onlinejxtit:before{ content: ""; position: absolute; top: 20%; left: 0; width: 0.1rem; height: 0.1rem; border-radius: 50%; background: #ff790b; }
+.m-qiyejj p{ color: #747474; font-size: 0.2rem; line-height: 0.4rem; padding-left: 0.2rem; word-wrap:break-word; }
+
+.m-onlinejxtit{ border-bottom: 1px solid #ccc;}
+
+/*兼职路线*/
+
+/*404*/
+.m-404{ height: 100%; padding-top: 1rem; text-align: center;}
+.m-404 img{ width: 40%; margin-bottom: 0.3rem;}
+.m-404 p{  margin-bottom: 0.3rem; font-size: 0.35rem; line-height: 0.7rem; color: #aebbc3;}
+.m-404 .btn{ display: block; margin: 0 auto; border-radius: 0.05rem; width: 50%; margin-bottom: 0.3rem; font-size: 0.3rem; line-height: 0.6rem; color: #fff; text-align: center; background: #fe7418;}
+
+/* m-jianzhimao */
+.u-fc{ color: #929086;}
+.flex_box{ display:box; display:-moz-box; display:-webkit-box;}
+.loc_box{ border-bottom:3px solid #ef9330;}
+.loc_box .slt{ -webkit-box-flex:1; width:0; background:url(img/arr_d.jpg) no-repeat right center;
+    position:relative; height:34px; line-height:34px; font-size: 0.24rem; text-align:center; padding:0 12px; overflow:hidden; white-space:nowrap; text-overflow:ellipsis;}
+.loc_box select{ -webkit-appearance:none; margin:0; padding:0; width:100%; height:100%; border:none; display:block; border-radius:0;
+    text-align:center; font-size:1em; position:absolute; top:0; left:0; opacity:0;}
+/*  加载更多 */
+.m-more_wrap{ text-align:center; padding:0.3rem 0; background: #fff;}
+.m-more{ font-size:0.28rem; text-decoration:underline; color:#2a93dd;}
+.m-more:active{ color:#D84A22;}
+/*  footer  */
+footer{ padding:0.2rem 0; border-top:1px solid #dbdbdb; background: #fff;}
+footer p{ text-align:center; font-size:0.24rem; line-height:0.48rem; color:#666;}
+footer .link{ color:#ef9330; font-size:0.26rem;}
+footer .link a{ color:#ef9330;}
+footer .link a:active{ color:#ee5310;}
+
+
+/* 2015 1027 新增 m1.02 */
+.m-top{ padding:0.15rem 0.2rem;  }
+.m-topLogo{ margin-right: 0.5rem; width: 0.7rem; height: 0.7rem; border-radius: 0.35rem; overflow: hidden; }
+.m-topLogo img{ width: 100%}
+.m-ss{}
+.m-ss_btn{display: block; height: 0.7rem; line-height: 0.7rem; font-size: 0.28rem;color: #fe7418; text-align: center;}
+.m-ss input{ width: 3.4rem; height: 0.3rem; padding: 0.15rem; border-radius: 0.3rem; border:1px solid #eeeeee;
+    font-size: 0.22rem; line-height: 0.3rem; color: #666; background: url("img/ss.png") no-repeat 95% center; background-size:0.25rem; }
+.m-login{ color: #fe7418;}
+.m-login_btn{ display: block; height: 0.7rem; line-height: 0.7rem; font-size: 0.28rem;color: #fe7418; text-align: center; }
+.m-login_btn:visited{ color:#fe7418;}
+.m-login_btn:visited{ color: #fe7418;}
+.m-user_center{ text-align: center;}
+.m-user_center img{ width:0.5rem; margin-bottom: 0.05rem;}
+.m-login a{ ;color: #fe7418; text-align: center; }
+.m-login a:visited{ color: #fe7418;}
+.m-login p{ font-size:0.14rem; }
+
+/* 首页搜索板块 */
+.m-ss_box{background: #fff; z-index: 9;}
+.m-ss_box .last{position: absolute; top: 0.25rem; left: 0.3rem;  width: 0.25rem; font-family: "宋体"; font-size: 0.24rem;  font-weight: bold;  color: #fe7418; }
+.m-ss_box  .last img{ width: 100%;}
+.m-ss_box input{ margin-left:0.8rem; width: 4.0rem;}
+.m-ss_box .m-top{ border-bottom: 1px solid #fe7418;}
+
+
+.m-ss_hotTag{ padding: 0.2rem;}
+.m-ss_hotTag .tit{  font-size: 0.24rem; color: #666666; margin-bottom: 0.2rem; }
+.m-ss_hotTag .list li{ float: left; width: 4.
+
+5em; padding: 0 1em; border-radius: 1em; margin-bottom: 0.3rem; margin-right: 0.4rem; font-size: 0.24rem; line-height: 2em; color: #333333; text-align: center; border:1px solid #ccc;}
+
+/* 详情页 完善简历提示弹窗 */
+.m-tc_btn{ border-top: 1px solid #ccc;}
+.m-tc_btn a{ font-size: 0.28rem; display: inline-block; width: 49%; height: 0.8rem; line-height: 0.8rem;text-align: center;}
+.m-tc_btn a.quxiao{ border-right: 1px solid #ccc;}
+
+/* 登陆页面 */
+.g-login_box{ width: 100%; min-height: 10rem; height: 100%; background-color: #fe7519; position: relative;}
+.m-backIndex{ width: 1rem; color: #fe7418;}
+.m-backIndex_btn{ display: block; height: 0.9rem; line-height: 0.9rem; font-size: 0.28rem;color: #fe7418; text-align: center; }
+.m-login_b{ width: 100%; position: absolute; left: 0; bottom: 0.4rem; font-size: 0.28rem; color: #ffffff; text-align: center;}
+.m-login_b a{font-size: 0.28rem; color: #ffffff;}
+.m-login_b a:visited{color: #ffffff;}
+
+
+.g-tx120 {width:1.2rem; height: 1.2rem; margin:0 auto; margin-bottom: 0.65rem; border: 3px solid #fff; border-radius:50%; overflow:hidden;
+    box-shadow: 0px 0px 2px 8px #fe7519,0px 0px 0px 10px #eee,0px 0px 1px 18px #fe7519,0px 0px 1px 19px #eee;}
+.g-tx120 img{ width: 100%;}
+
+.m-login_box{ margin-top: 0.8rem;}
+.m-login_input{ width: 80%; background-color: #fff; border-radius: 10px; padding: 0.2rem; margin: 0 auto; position: relative;}
+.m-login_input p{ font-size:0.28rem; line-height:0.4rem; padding: 0.2rem; overflow: hidden; }
+.m-login_input label{ width: 15%; float: left; }
+.m-login_input input{ font-size:0.28rem; line-height:0.4rem; border: none; width: 70%; padding-left: 0.3rem; float: left; }
+.m-login_input:before{ content: "";  width: 0;height: 0;  border-left: 0.2rem solid transparent;
+    border-right: 0.2rem solid transparent;  border-bottom: 0.3rem solid #fff; position: absolute; top:-0.2rem; left: 50%; margin-left: -0.2rem; }
+
+.m-inputbtn{ margin: 0 auto; display: block; padding: 0 0.2rem; width: 80%; height: 0.8rem; line-height: 0.8rem;
+    text-align: center; color: #fff; border-radius: 0.05rem;
+    font-size: 0.32rem; margin-top: 0.4rem; margin-bottom: 0.2rem; background-color: #fe7418;}
+.m-for_pasw{ overflow: hidden; width: 5.4rem; margin: 0 auto; color: #fff; font-size: 0.24rem;}
+.m-for_pasw a{ color: #fff;}
+.m-for_pasw i{ display: inline-block; width: 0.25rem; margin-right: 0.1rem; height: 0.25rem; background: none;border: 1px solid #fff;}
+.m-is_pasw{ height: 0.3rem; line-height: 0.3rem; padding-left: 0.4rem; background: url("img/bg_check.png") no-repeat left center; background-size:0.3rem;}
+.m-is_pasw.cur{background: url("img/check.png") no-repeat left center;background-size:0.3rem;}
+
+/* 注册页面 */
+.g-reg .m-xqtop{ border-color: #fe7418; margin-bottom: 0.3rem;}
+.m-reg_input p{ font-size:0.28rem; line-height:0.4rem; padding: 0.2rem; overflow: hidden; position: relative; }
+.m-reg_input label{ width: 15%;  float: left; text-align: center; color: #666; }
+.m-reg_input input{    background: none; font-size:0.28rem; line-height:0.4rem;  color: #333333; border: none; width: 70%; padding-left: 0.3rem; float: left; }
+.m-yanzhengma{ display: inline-block; position: absolute; right:0.3rem; top: 0.1rem; background: #5da72a; color: #fff; width: 1.6rem; height: 0.6rem; line-height:0.6rem; font-size: 0.28rem; text-align: center; border-radius: 0.3rem; }
+.m-xieyi{ height: 0.3rem; line-height: 0.3rem; padding-left: 0.4rem; background: url("img/check_2no.png") no-repeat left center; background-size:0.3rem;}
+.m-xieyi.cur{background: url("img/check_2.png") no-repeat left center;background-size:0.3rem;}
+.m-xieyi a{ color: #2b80f3;}
+.m-xieyi a:visited{ color: #2b80f3;}
+
+/* 个人中心 */
+.g-usercenter{ position: relative; height: 100%;}
+.g-usercenter .m-xqtop{ border-color: #fe7418;}
+.g-userc_t{ padding: 0.65rem 0.35rem; background: #fe7418;}
+.g-tx80 {width:0.8rem; height:0.8rem;border: 2px solid #d35f12; border-radius:50%; overflow:hidden;  }
+.g-tx80 img{ width: 100%;}
+.m-outlogin{ position: absolute; left: 50%; margin-left: -2rem; bottom: 1rem; width: 4rem; height: 0.8rem; border-radius: 5px; border:1px solid #333333; line-height: 0.8rem; text-align: center; font-size: 0.28rem; color: #666666;}
+
+.g-userc_c{ margin-left: 0.25rem; padding-top: 0.1rem;}
+.g-userc_c .name{ font-size: 0.28rem; margin-bottom: 0.15rem; line-height: 0.34rem; font-weight: 800; letter-spacing: 1px;  color: #fff; padding-right: 0.4rem; float: left;  }
+.g-userc_c .tel{ font-size: 0.22rem; color: #fff;  }
+.man{ background: url("img/nan_icon.png") no-repeat right center; background-size: 0.32rem;}
+.woman{ background: url("img/woman_icon.png") no-repeat right center; background-size: 0.32rem;}
+.g-userc_menu li{  border-bottom: 1px solid #ccc;background: url("img/next.png") no-repeat 98% center; background-size: 0.15rem;}
+.g-userc_menu li a{ font-size: 0.24rem; display: block;padding: 0.3rem; height: 0.3rem; padding-left: 0.7rem; line-height: 0.3rem;}
+.g-userc_menu li a.my_jl{  background: url("img/resume_icon.png") no-repeat 0.2rem center; background-size: 0.25rem; }
+.g-userc_menu li a.my_sq{  background: url("img/apply_icon.png") no-repeat 0.2rem center; background-size: 0.25rem;}
+/* 我的申请 */
+.g-apply_box  li.jiage span{ font-size:0.32rem; color: #FF0000; }
+.g-apply_box  li .genzhong{ position: absolute;width: 100%; bottom: 0; left: 0.2rem; height: 0.9rem;
+    line-height: 0.9rem; border-top: 1px solid #dedede; font-size: 0.28rem; color: #fe7418; background: url("img/nexr2.png") no-repeat 95% center; background-size: 0.15rem;}
+.g-apply_box .m-list>li{ padding-bottom: 1.2rem; margin-bottom: 0.3rem; border-top: 1px solid #ccc; }
+
+/* 资料页面 */
+.u-bixuan{ color: #fe7418;}
+.m-data_box label{ width: 25% ; text-align: left;}
+.m-data_box input{ width: 70%; padding-left: 0;}
+.m-data_box .u-bsa{background: url("img/next.png") no-repeat 98% center; background-size: 0.15rem; }
+.m-data_box .g-tx80{margin-right: 0.4rem;}
+.g-top10{ margin-top: 0.25rem;}
+.j-sex{ display: inline-block; text-align: center; position: absolute; top:0.2rem; left: 27%;}
+.j-sex li{ width: 1.2rem; height:0.55rem; overflow: hidden; text-indent: -9999em; margin-right: 0.38rem; }
+.j-sex li.man{ background: url("img/man.png") no-repeat; background-size: 1.2rem; }
+.j-sex li.man.cur{ background: url("img/man_cur.png") no-repeat; background-size: 1.2rem; }
+.j-sex li.woman{ background: url("img/woman.png") no-repeat; background-size: 1.2rem; }
+.j-sex li.woman.cur{ background: url("img/woman_cur.png") no-repeat; background-size: 1.2rem; }
+
+/* 2015 1106 新增 首页 没有更多兼职提示*/
+.m-no_more{font-size:0.28rem; color:#999999;}
+
+/* 2015 1110 头像上传页面 */
+.g-tx120_2 {width:1.2rem; height: 1.2rem; margin:0 auto; margin-bottom: 0.6rem; margin-top: 0.8rem;  cursor: pointer; border-radius:50%; overflow:hidden;
+    box-shadow: 0px 0px 0px 3px #fe7519,0px 0px 0px 11px #fff,0px 0px 0px 12px #fe7519,0px 0px 0px 19px #fff,0px 0px 0px 20px #fe7519;
+    background-position: center center; background-size: 1.2rem;
+}
+.u-photo_ts{ font-size: 0.22rem; color: #666666; text-align: center; margin-bottom: 0.55rem;}
+.u-photo_btn{ display: block; margin: 0 auto; width: 90%; height:0.8rem; line-height: 0.8rem; text-align: center; background-color: #99cd38; color: #fff; font-size: 0.32rem; border-radius: 5px;}
+.u-photo_btn:hover{ background-color: #82CD11; color: #fff;}
+

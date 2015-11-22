@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<!-- saved from url=(0039)http://m.jianzhimao.com/login/renderReg -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>注册</title>
+     
+    
+	<!-- No Baidu Siteapp-->
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <!-- no chache -->
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/media50px.min.css">
+    <link rel="stylesheet" href="./css/alt.css">
+    <link rel="stylesheet" href="./css/index.css">
+    
+<script src="./js/zepto.min.js"></script>
+<script src="./js/touch.js"></script>
+<script src="./js/alt.js"></script>
+<script>
+	// 操作cookie
+	// 获取cookie
+	function getCookie(c_name){
+		if (document.cookie.length>0){
+			var c_start=document.cookie.indexOf(c_name + "=");
+			if (c_start!=-1){
+				c_start=c_start + c_name.length+1;
+				var c_end=document.cookie.indexOf(";",c_start);
+				if (c_end==-1){
+					c_end=document.cookie.length;
+				}
+				return unescape(document.cookie.substring(c_start,c_end))
+			}
+		}
+		return ""
+	}
+
+	// 设置cookie
+	function setCookie(c_name,value,expiredays){
+		var exdate=new Date()
+		exdate.setDate(exdate.getDate()+expiredays)
+		document.cookie=c_name+ "=" +escape(value)+
+		((expiredays==null) ? "" : ";expires="+exdate.toGMTString())
+	}
+
+	// 检查cookie
+	function checkCookie(c_name){
+		var c_name=getCookie(c_name)
+		if(c_name!=null && c_name!=""){
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+	//禁止鼠标右键
+	document.oncontextmenu=function(){
+	    return false;
+	};
+
+	// 手机
+	function isMobile(text) {
+		return /^((17[0-9])|(14[0-9])|(13[0-9])|(15[^4,\D])|(18[0-9]))\d{8}$/.test(text);
+	}
+
+	// 邮箱
+	function isEmail(text) {
+		return /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/.test(text);
+	}
+
+	// 日期
+	function isDate(text) {
+		//if (!/^(\d{4})-(\d{2})-(\d{2})$/.test(text)) {
+		//	return false;
+		//}
+		// try {
+		// 	var date = new Date(text);	
+		// 	return true;
+		// } catch (Exception e) {
+		// 	return false;
+		// }
+		return (new Date(text).getDate() == text.substring(text.length-2));
+	}
+
+	// 密码
+	function isPasswprd(text) {
+		return /[a-zA-Z0-9]{6,16}/.test(text);
+	}
+	
+	// 姓名
+	function isName(text) {
+		return text.length > 1 && text.length < 5 && /[\u4e00-\u9fa5A-Za-z.]{2,10}$/.test(text);
+	}
+
+	//弹窗封装
+    function show_alert(text){
+        var oApplyAlt=new _alert({
+            cnt:'<div id="jianli_alt" style="text-align:center;">'+
+            '<p style="padding:10px 0;font-size: 0.32rem;">'+text+'</p>'+
+            '</div>',
+            ft:'<div class="m-tc_btn"><a class="quxiao" href="javascript:" style="color: #fe7418; border: none;">确定</a></div>',
+            overlay:true
+        }).build();
+        $(oApplyAlt).css({"top":"20%","z-index":"10"})
+    }
+
+    //确定按钮
+    $(document).on('click','.quxiao',function (e) {
+        clearTimeout(t)
+        var t=setTimeout($(".cl_btn").click(),500)
+    })
+
+</script>
+</head>
+<body>
+<div class="g-reg">
+    <!-- 头部 start -->
+    <div class="m-xqtop f-pr">
+        <a href="javascript:history.go(-1);" class="last"> <img src="./img/last.png" alt=""> </a>
+        <h2>注册</h2>
+        <div class="m-backIndex f-fr">
+            <a href="#" class="m-backIndex_btn">首页</a>
+        </div>
+    </div>
+    <!-- 注册页面 主体 -->
+    <div class="m-reg_box">
+        <div class="m-reg_input">
+            <p class="u-b_t"><label for="user_phone">手机</label><input maxlength="11" id="user_phone" type="number" placeholder="手机号码">
+                <span class="m-yanzhengma">发送</span>
+            </p>
+            <p class="u-b_t"><label for="user_yzm">验证码</label><input maxlength="6" id="user_yzm" type="text" placeholder="输入验证码" data-form-un="1447943036434.4866"></p>
+            <p class="u-b_t"><label for="user_psw">密码</label><input id="user_psw" maxlength="16" type="password" placeholder="输入6-16位数字或字母" data-form-pw="1447943036434.4866"></p>
+            <p class="m-for_xieyi u-b_t"><span class="f-fl m-xieyi cur">我已阅读并同意<a href="#">兼职猫用户协议</a></span></p>
+            <a href="#" class="m-inputbtn">注册</a>
+        </div>
+    </div>
+</div>
+<script>
+
+    window.onload=function(){
+    // 同意协议
+    $('.m-xieyi').tap(function(){
+        $(this).toggleClass("cur")
+    });
+    // 注册按钮点击时进行前端表单验证
+    $('.m-inputbtn').click(function(){
+        var user_phone=$("#user_phone").val()
+        var user_yzm=$("#user_yzm").val()
+        var user_psw=$("#user_psw").val()
+        var is_xieyi=$(".m-xieyi").hasClass("cur")
+
+        if(!isMobile(user_phone)){
+            show_alert("请输入正确的手机号码")
+            return;
+        }else if(!/\S/.test(user_yzm)){
+            show_alert("请输入验证码")
+            return;
+        }else if(!isPasswprd(user_psw)){
+            show_alert("请设置6-16数字或字母的密码")
+            return;
+        }else if(!is_xieyi){
+            show_alert("请同意注册协议")
+            return;
+        }
+        //注册成功
+        //注意，后端验证返回到前端 也调用show_alert方法，仅在当前页面调用有效
+        $.ajax({
+                    type: 'POST',
+                    url: '/login/reg',
+                    data: { 
+                        user_phone:user_phone,
+                        user_yzm:user_yzm,
+                        user_psw:user_psw
+                    },
+                    timeout: 10000,
+                    dataType: 'json',
+                    success: function(data){
+                        if (data.result.state == 100) {
+                            show_alert(data.result.msg);
+                            $(".cl_btn").click(function () {
+                                window.location.href="/";
+                            })
+                        } else {
+                            show_alert(data.result.msg);
+                        }
+                    },
+                    error: function(xhr, type){
+                         show_alert("网络错误");
+                    },
+                    complete : function (data) {
+                    }
+                });
+
+        });
+    }
+    
+    //获取手机验证码
+    function time(o) {
+        clearTimeout(t)
+        if (wait == 0) {
+            o.innerHTML = "发送";
+			o.style.background = "#5da72a";
+        } else {
+			o.style.background = "#E2E1E1";
+            o.innerHTML = "等待(" + wait + ")";
+            wait--;
+            var t=setTimeout(function() {
+                        time(o)
+                    },
+                    1000)
+        }
+    }
+
+    //获取短信验证码120S倒计时调用
+    $(".m-yanzhengma").click(function(){
+            if(!isMobile($("#user_phone").val())){  //手机号
+                alert('请输入正确的手机号码');
+                $("#user_phone").focus();
+                return;
+            }
+            if($(this).html()!="发送"){
+                 return ;
+            }else{
+                wait = 120;
+                time(this);
+            }
+            $.ajax({
+                type: 'POST',
+                url: '/login/sendAuthCode',
+                data: { phone:$("#user_phone").val()},
+                timeout: 10000,
+                dataType: 'json',
+                success: function(data){
+                    show_alert(data.result.msg);
+                },
+                error: function(xhr, type){
+                    show_alert("网络错误");
+                }
+            });
+    });
+</script>
+
+<div id="qb-sougou-search" style="display: none; opacity: 0;"><p>搜索</p><p class="last-btn">复制</p><iframe src=""></iframe></div></body></html>

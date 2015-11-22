@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<title>校园萌主</title>
+ 
+    
+	<!-- No Baidu Siteapp-->
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <!-- no chache -->
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/media50px.min.css">
+    <link rel="stylesheet" href="./css/alt.css">
+    <link rel="stylesheet" href="./css/index.css">
+    
+<script src="./js/zepto.min.js"></script>
+<script src="./js/touch.js"></script>
+<script src="./js/alt.js"></script>
+<script>
+	// 操作cookie
+	// 获取cookie
+	function getCookie(c_name){
+		if (document.cookie.length>0){
+			var c_start=document.cookie.indexOf(c_name + "=");
+			if (c_start!=-1){
+				c_start=c_start + c_name.length+1;
+				var c_end=document.cookie.indexOf(";",c_start);
+				if (c_end==-1){
+					c_end=document.cookie.length;
+				}
+				return unescape(document.cookie.substring(c_start,c_end))
+			}
+		}
+		return ""
+	}
+
+	// 设置cookie
+	function setCookie(c_name,value,expiredays){
+		var exdate=new Date()
+		exdate.setDate(exdate.getDate()+expiredays)
+		document.cookie=c_name+ "=" +escape(value)+
+		((expiredays==null) ? "" : ";expires="+exdate.toGMTString())
+	}
+
+	// 检查cookie
+	function checkCookie(c_name){
+		var c_name=getCookie(c_name)
+		if(c_name!=null && c_name!=""){
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+	//禁止鼠标右键
+	document.oncontextmenu=function(){
+	    return false;
+	};
+
+	// 手机
+	function isMobile(text) {
+		return /^((17[0-9])|(14[0-9])|(13[0-9])|(15[^4,\D])|(18[0-9]))\d{8}$/.test(text);
+	}
+
+	// 邮箱
+	function isEmail(text) {
+		return /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/.test(text);
+	}
+
+	// 日期
+	function isDate(text) {
+		//if (!/^(\d{4})-(\d{2})-(\d{2})$/.test(text)) {
+		//	return false;
+		//}
+		// try {
+		// 	var date = new Date(text);	
+		// 	return true;
+		// } catch (Exception e) {
+		// 	return false;
+		// }
+		return (new Date(text).getDate() == text.substring(text.length-2));
+	}
+
+	// 密码
+	function isPasswprd(text) {
+		return /[a-zA-Z0-9]{6,16}/.test(text);
+	}
+	
+	// 姓名
+	function isName(text) {
+		return text.length > 1 && text.length < 5 && /[\u4e00-\u9fa5A-Za-z.]{2,10}$/.test(text);
+	}
+
+	//弹窗封装
+    function show_alert(text){
+        var oApplyAlt=new _alert({
+            cnt:'<div id="jianli_alt" style="text-align:center;">'+
+            '<p style="padding:10px 0;font-size: 0.32rem;">'+text+'</p>'+
+            '</div>',
+            ft:'<div class="m-tc_btn"><a class="quxiao" href="javascript:" style="color: #fe7418; border: none;">确定</a></div>',
+            overlay:true
+        }).build();
+        $(oApplyAlt).css({"top":"20%","z-index":"10"})
+    }
+
+    //确定按钮
+    $(document).on('click','.quxiao',function (e) {
+        clearTimeout(t)
+        var t=setTimeout($(".cl_btn").click(),500)
+    })
+
+</script>
+<script>
+/*//判断当前定位信息是否与cookie一致，不一致则做第二次跳转
+var c_name='m_location_obj';
+(function(){
+	if(checkCookie(c_name)){
+		var locObj=eval('('+getCookie(c_name)+')');
+		if(locObj.prov!='广东'||locObj.c!='广州'||locObj.a!='番禺'){
+			window.location.href='/job?prov='+locObj.prov+'&c='+locObj.c+'&a='+locObj.a+'&type=';
+		}
+	}
+})();*/
+</script>
+</head>
+
+<body>
+<div class="m-top f-cb">
+    <div class="m-topLogo f-fl">
+        <img src="./img/mlogo.png" alt="">
+    </div>
+    <div class="m-ss f-fl">
+        <input type="text" id="j-ss1" placeholder="请输入兼职的关键词">
+    </div>
+    <div class="m-login f-fr">
+    	<a href="./login.html" class="m-login_btn">登录</a>
+    </div>
+</div>
+<div class="m-qiye f-pr">
+    <dl>
+        <dt><img src="./img/logo.gif" alt=""></dt>
+        <dd>
+            <h2>校园萌主</h2>
+            <p class="u-fc">打造真实可靠的兼职应用</p>
+        </dd>
+    </dl>
+    <a href="javascript:void(0);" class="btn">求职端</a>
+</div>
+<!--  省级联级菜单 -->
+<div class="loc_box flex_box">
+	 <div class="slt">
+ <span id="sltP">广东</span>
+ <select id="p">
+            
+            <option selected="">广东</option>
+            
+            <option>北京市</option>
+            
+            <option>湖北</option>
+            
+            <option>上海市</option>
+            
+            <option>江苏</option>
+            
+            <option>四川</option>
+            
+            <option>重庆市</option>
+            
+            <option>湖南</option>
+            
+            <option>浙江</option>
+            
+            <option>河北</option>
+            
+            <option>安徽</option>
+            
+            <option>贵州</option>
+            
+            <option>云南</option>
+            
+            <option>西藏</option>
+            
+            <option>陕西</option>
+            
+            <option>甘肃</option>
+            
+            <option>青海</option>
+            
+            <option>宁夏</option>
+            
+            <option>河南</option>
+            
+            <option>山东</option>
+            
+            <option>江西</option>
+            
+            <option>山西</option>
+            
+            <option>内蒙古</option>
+            
+            <option>辽宁</option>
+            
+            <option>吉林</option>
+            
+            <option>黑龙江</option>
+            
+            <option>新疆</option>
+            
+            <option>福建</option>
+            
+            <option>广西</option>
+            
+            <option>天津市</option>
+            
+            <option>海南</option>
+            
+    </select>
+    </div>
+    <div class="slt" style="border-left:1px solid #ccc; border-right:1px solid #ccc;">
+    <span id="sltC">广州</span>
+    <select id="c" style="border-left:1px solid #ccc; border-right:1px solid #ccc;">
+            
+            <option selected="">广州</option>
+            
+            <option>深圳</option>
+            
+            <option>佛山</option>
+            
+            <option>汕头</option>
+            
+            <option>中山</option>
+            
+            <option>揭阳</option>
+            
+            <option>清远</option>
+            
+            <option>河源</option>
+            
+            <option>汕尾</option>
+            
+            <option>梅州</option>
+            
+            <option>惠州</option>
+            
+            <option>湛江</option>
+            
+            <option>江门</option>
+            
+            <option>珠海</option>
+            
+            <option>韶关</option>
+            
+            <option>云浮</option>
+            
+            <option>肇庆</option>
+            
+            <option>茂名</option>
+            
+            <option>东莞</option>
+            
+            <option>潮州</option>
+            
+	</select>
+	 </div>
+
+    <div class="slt">
+    <span id="sltA">番禺</span>
+    <select id="a">
+        	<option id="sltA">--区--</option>
+            
+            <option>天河</option>
+            
+            <option>荔湾</option>
+            
+            <option>越秀</option>
+            
+            <option>海珠</option>
+            
+            <option>花都</option>
+            
+            <option selected="">番禺</option>
+            
+            <option>从化</option>
+            
+            <option>增城</option>
+            
+            <option>黄埔</option>
+            
+            <option>白云</option>
+            
+            <option>南沙</option>
+            
+            <option>萝岗</option>
+            
+    </select>
+    </div>
+</div>
+
+<!-- 兼职列表  -->
+<ul class="m-list">
+	
+    	<li url="job/detail.html" onclick="location.href=$(this).attr('url');">
+			<i class="type wy"></i>
+            <h2 class="tit">招聘招商部的业务助理</h2>
+            <ol>
+            	<li><i class="area">&nbsp;</i>番禺</li>
+                <li><i class="date">&nbsp;</i><span data-createtime="刚刚" class="time">刚刚</span></li>
+                <li><i class="unit_icn">&nbsp;</i>10元/小时</li>
+            </ol>
+        </li>
+    
+    	<li url="job/detail.html" onclick="location.href=$(this).attr('url');">
+			<i class="type qt"></i>
+            <h2 class="tit">招聘网络推广员</h2>
+            <ol>
+            	<li><i class="area">&nbsp;</i>番禺</li>
+                <li><i class="date">&nbsp;</i><span data-createtime="刚刚" class="time">刚刚</span></li>
+                <li><i class="unit_icn">&nbsp;</i>10元/小时</li>
+            </ol>
+        </li>
+    
+    	<li url="job/detail.html" onclick="location.href=$(this).attr('url');">
+			<i class="type qt"></i>
+            <h2 class="tit">支付宝口碑网商家推广兼职</h2>
+            <ol>
+            	<li><i class="area">&nbsp;</i>番禺</li>
+                <li><i class="date">&nbsp;</i><span data-createtime="刚刚" class="time">刚刚</span></li>
+                <li><i class="unit_icn">&nbsp;</i>300元/天</li>
+            </ol>
+        </li>
+    
+    	<li url="job/detail.html" onclick="location.href=$(this).attr('url');">
+			<i class="type dy"></i>
+            <h2 class="tit">周二广大大学城派单兼职</h2>
+            <ol>
+            	<li><i class="area">&nbsp;</i>番禺</li>
+                <li><i class="date">&nbsp;</i><span data-createtime="26分钟前" class="time">26分钟前</span></li>
+                <li><i class="unit_icn">&nbsp;</i>80元/天</li>
+            </ol>
+        </li>
+    
+    	<li url="job/detail.html" onclick="location.href=$(this).attr('url');">
+			<i class="type xs"></i>
+            <h2 class="tit">招健身会籍顾问兼职</h2>
+            <ol>
+            	<li><i class="area">&nbsp;</i>番禺</li>
+                <li><i class="date">&nbsp;</i><span data-createtime="33分钟前" class="time">33分钟前</span></li>
+                <li><i class="unit_icn">&nbsp;</i>1800元/月</li>
+            </ol>
+        </li>
+    
+    	<li url="job/detail.html" onclick="location.href=$(this).attr('url');">
+			<i class="type cx"></i>
+            <h2 class="tit">100元大学城促销推广</h2>
+            <ol>
+            	<li><i class="area">&nbsp;</i>番禺</li>
+                <li><i class="date">&nbsp;</i><span data-createtime="42分钟前" class="time">42分钟前</span></li>
+                <li><i class="unit_icn">&nbsp;</i>18元/小时</li>
+            </ol>
+        </li>
+    
+    	<li url="job/detail.html" onclick="location.href=$(this).attr('url');">
+			<i class="type cx"></i>
+            <h2 class="tit">番禺长期高提成推广底薪2200</h2>
+            <ol>
+            	<li><i class="area">&nbsp;</i>番禺</li>
+                <li><i class="date">&nbsp;</i><span data-createtime="54分钟前" class="time">54分钟前</span></li>
+                <li><i class="unit_icn">&nbsp;</i>14元/小时</li>
+            </ol>
+        </li>
+    
+    	<li url="job/detail.html" onclick="location.href=$(this).attr('url');">
+			<i class="type dy"></i>
+            <h2 class="tit">品牌推广员</h2>
+            <ol>
+            	<li><i class="area">&nbsp;</i>番禺</li>
+                <li><i class="date">&nbsp;</i><span data-createtime="57分钟前" class="time">57分钟前</span></li>
+                <li><i class="unit_icn">&nbsp;</i>300元/(次,单)</li>
+            </ol>
+        </li>
+    
+    	<li url="job/detail.html" onclick="location.href=$(this).attr('url');">
+			<i class="type qt"></i>
+            <h2 class="tit">番禺百万葵园酒店招长期客房清洁</h2>
+            <ol>
+            	<li><i class="area">&nbsp;</i>番禺</li>
+                <li><i class="date">&nbsp;</i><span data-createtime="1小时前" class="time">1小时前</span></li>
+                <li><i class="unit_icn">&nbsp;</i>3800元/月</li>
+            </ol>
+        </li>
+    
+    	<li url="job/detail.html" onclick="location.href=$(this).attr('url');">
+			<i class="type xn"></i>
+            <h2 class="tit">益米科技招募高校负责人</h2>
+            <ol>
+            	<li><i class="area">&nbsp;</i>番禺</li>
+                <li><i class="date">&nbsp;</i><span data-createtime="1小时前" class="time">1小时前</span></li>
+                <li><i class="unit_icn">&nbsp;</i>1000元/月</li>
+            </ol>
+        </li>
+    
+    	<li url="job/detail.html" onclick="location.href=$(this).attr('url');">
+			<i class="type scy"></i>
+            <h2 class="tit">披萨店送餐员</h2>
+            <ol>
+            	<li><i class="area">&nbsp;</i>番禺</li>
+                <li><i class="date">&nbsp;</i><span data-createtime="1小时前" class="time">1小时前</span></li>
+                <li><i class="unit_icn">&nbsp;</i>12元/小时</li>
+            </ol>
+        </li>
+    
+    	<li url="job/detail.html" onclick="location.href=$(this).attr('url');">
+			<i class="type pd"></i>
+            <h2 class="tit">招聘明天17号还需要2人派单</h2>
+            <ol>
+            	<li><i class="area">&nbsp;</i>番禺</li>
+                <li><i class="date">&nbsp;</i><span data-createtime="1小时前" class="time">1小时前</span></li>
+                <li><i class="unit_icn">&nbsp;</i>85元/天</li>
+            </ol>
+        </li>
+    
+    	<li url="job/detail.html" onclick="location.href=$(this).attr('url');">
+			<i class="type scy"></i>
+            <h2 class="tit">广工早点丫楼主招聘</h2>
+            <ol>
+            	<li><i class="area">&nbsp;</i>番禺</li>
+                <li><i class="date">&nbsp;</i><span data-createtime="2小时前" class="time">2小时前</span></li>
+                <li><i class="unit_icn">&nbsp;</i>15元/小时</li>
+            </ol>
+        </li>
+    
+    	<li url="job/detail.html" onclick="location.href=$(this).attr('url');">
+			<i class="type sx kj"></i>
+            <h2 class="tit">招长期项目执行人员sh</h2>
+            <ol>
+            	<li><i class="area">&nbsp;</i>番禺</li>
+                <li><i class="date">&nbsp;</i><span data-createtime="2小时前" class="time">2小时前</span></li>
+                <li><i class="unit_icn">&nbsp;</i>140元/天</li>
+            </ol>
+        </li>
+    
+    	<li url="job/detail.html" onclick="location.href=$(this).attr('url');">
+			<i class="type dy"></i>
+            <h2 class="tit">番禺银行神秘客100/时现结30岁以上</h2>
+            <ol>
+            	<li><i class="area">&nbsp;</i>番禺</li>
+                <li><i class="date">&nbsp;</i><span data-createtime="2小时前" class="time">2小时前</span></li>
+                <li><i class="unit_icn">&nbsp;</i>100元/小时</li>
+            </ol>
+        </li>
+    
+    	<li url="job/detail.html" onclick="location.href=$(this).attr('url');">
+			<i class="type pd"></i>
+            <h2 class="tit">明天市桥派单兼职</h2>
+            <ol>
+            	<li><i class="area">&nbsp;</i>番禺</li>
+                <li><i class="date">&nbsp;</i><span data-createtime="2小时前" class="time">2小时前</span></li>
+                <li><i class="unit_icn">&nbsp;</i>10元/小时</li>
+            </ol>
+        </li>
+    
+    	<li url="job/detail.html" onclick="location.href=$(this).attr('url');">
+			<i class="type lsg"></i>
+            <h2 class="tit">11元京东物流招聘男兼职</h2>
+            <ol>
+            	<li><i class="area">&nbsp;</i>番禺</li>
+                <li><i class="date">&nbsp;</i><span data-createtime="3小时前" class="time">3小时前</span></li>
+                <li><i class="unit_icn">&nbsp;</i>11元/小时</li>
+            </ol>
+        </li>
+    
+    	<li url="job/detail.html" onclick="location.href=$(this).attr('url');">
+			<i class="type fwy"></i>
+            <h2 class="tit">钟村祈福酒家招兼职服务员</h2>
+            <ol>
+            	<li><i class="area">&nbsp;</i>番禺</li>
+                <li><i class="date">&nbsp;</i><span data-createtime="3小时前" class="time">3小时前</span></li>
+                <li><i class="unit_icn">&nbsp;</i>10元/小时</li>
+            </ol>
+        </li>
+    
+    	<li url="job/detail.html" onclick="location.href=$(this).attr('url');">
+			<i class="type fwy"></i>
+            <h2 class="tit">招聘宴会经理</h2>
+            <ol>
+            	<li><i class="area">&nbsp;</i>番禺</li>
+                <li><i class="date">&nbsp;</i><span data-createtime="3小时前" class="time">3小时前</span></li>
+                <li><i class="unit_icn">&nbsp;</i>100元/(次,单)</li>
+            </ol>
+        </li>
+    
+    	<li url="job/detail.html" onclick="location.href=$(this).attr('url');">
+			<i class="type cx"></i>
+            <h2 class="tit">叮当快药app推广</h2>
+            <ol>
+            	<li><i class="area">&nbsp;</i>番禺</li>
+                <li><i class="date">&nbsp;</i><span data-createtime="3小时前" class="time">3小时前</span></li>
+                <li><i class="unit_icn">&nbsp;</i>3元/单</li>
+            </ol>
+        </li>    
+    
+    	<li url="job/detail.html" onclick="location.href=$(this).attr('url');">
+			<i class="type lsg"></i>
+            <h2 class="tit">大学城北亭招打包兼职</h2>
+            <ol>
+            	<li><i class="area">&nbsp;</i>番禺</li>
+                <li><i class="date">&nbsp;</i><span data-createtime="4小时前" class="time">4小时前</span></li>
+                <li><i class="unit_icn">&nbsp;</i>10元/小时</li>
+            </ol>
+        </li>
+    
+    	<li url="job/detail.html" onclick="location.href=$(this).attr('url');">
+			<i class="type xn"></i>
+            <h2 class="tit">大学城帅哥电单车兼职</h2>
+            <ol>
+            	<li><i class="area">&nbsp;</i>番禺</li>
+                <li><i class="date">&nbsp;</i><span data-createtime="4小时前" class="time">4小时前</span></li>
+                <li><i class="unit_icn">&nbsp;</i>14元/小时</li>
+            </ol>
+        </li>
+    
+    
+</ul>
+<!-- 加载更多-->
+<div class="m-more_wrap">
+	<div id="index_more"><p class="m-more_wrap"><a class="m-more" id="more">点击获取更多</a></p></div>
+	<div id="index_nomore" style="display: none;"><p class="m-no_more">没有更多的兼职了~</p></div>
+</div>
+<!-- 底部版权 -->
+<footer>
+    <p>加入校园萌友</p>
+</footer>
+<div id="uc" style="position:fixed; bottom:30px; right:10px; width:60px; height:60px; background:url(./img/sx.png); border-radius:60px; color:#fff; line-height:50px; text-align:center;">
+<select id="type_btn" style="-webkit-appearance:none; width:60px; height:60px; border-radius:60px; opacity:0; position:absolute; top:0; left:0;">
+	<option>全部</option>
+	
+	<option>调研</option>
+    
+	<option>送餐员</option>
+    
+	<option>促销</option>
+    
+	<option>礼仪</option>
+    
+	<option>安保</option>
+    
+	<option>销售</option>
+    
+	<option>服务员</option>
+    
+	<option>临时工</option>
+    
+	<option>校内</option>
+    
+	<option>设计</option>
+    
+	<option>文员</option>
+    
+	<option>派单</option>
+    
+	<option>模特</option>
+    
+	<option>实习</option>
+    
+	<option>家教</option>
+    
+	<option>演出</option>
+    
+	<option>客服</option>
+    
+	<option>翻译</option>
+    
+	<option>其他</option>
+    
+</select>
+</div>
+
+
+<script>
+var pIndex=2,type='';
+var timer=null;
+window.onload=function(){
+    /*$('.m-list').on('ul>li','click',function(){
+    	alert('');
+        window.location.href=$(this).attr('url');
+    });*/
+    $(".m-ss_box").css("overflow-y", "auto");
+    $(".m-ss_box").height("100%");
+    $("#index_nomore").hide();
+	$("#index_more").show();
+	
+	$('#type_btn').change(function(){
+		if($(this).val()=='全部'){
+			type='';
+		}else{
+			type=$(this).val();
+		}
+		var area=$('#a').val();
+		if($('#a').val()=='--区--'){
+			area='';
+		}
+		getList(1, $('#p').val() , $('#c').val() , area , type , function(data){		//获取列表
+			var arr=data.list;
+			var html=render(arr);
+			$('.m-list').html(html);                                       
+			pIndex=2;
+			$('body').scrollTop(0);
+		});
+	});
+	
+	$('#more').tap(function(){		//点击查看更多
+		var zoom=$('#a').val();
+		if($('#a').val()=='--区--'){
+			zoom='';
+		}
+		getList(pIndex , $('#p').val() , $('#c').val() , zoom , type , function(data){
+			if(data.status==0){
+				var arr=data.list;
+				var html=render(arr);
+				$('.m-list').append(html);
+				pIndex++;
+			}else{
+				new _msg({cnt:'没有更多的兼职了~'}).build();
+				$("#index_more").hide();
+				$("#index_nomore").show();
+			}
+		});
+	});
+	
+	$('#p').change(function(){
+		$('#sltP').html($('#p').val());
+		getArea($(this).val() ,2 , function(data){		//获取省份以下的城市
+			var arr=data.list;
+			var html='';
+			for(var i=0; i<arr.length; i++){
+				html+='<option>'+arr[i].city+'</option>';
+			}
+			$('#c').html(html);
+			$('#sltC').html($('#c').val());
+			
+			getArea($('#c').val() ,3 , function(data){		//获取城市以下的地区
+				var arr=data.list;
+				var html='<option>--区--</option>';
+				for(var i=0; i<arr.length; i++){
+					html+='<option>'+arr[i].area+'</option>';
+				}
+				$('#a').html(html);
+				$('#sltA').html($('#a').val());
+				
+				getList(1, $('#p').val() , $('#c').val() , $('#a').val() , type , function(data){		//获取列表
+					var arr=data.list;
+					var html=render(arr);
+					$('.m-list').html(html);
+					pIndex=2;
+					updateCookie();
+				});
+			});
+		});
+	});
+	
+	$('#c').change(function(){
+		$('#sltC').html($('#c').val());
+		getArea($('#c').val() ,3, function(data){		//获取城市以下的地区
+			var arr=data.list;
+			
+			var html='<option>--区--</option>';
+			for(var i=0; i<arr.length; i++){
+				html+='<option>'+arr[i].area+'</option>';
+			}
+			$('#a').html(html);
+			$('#sltA').html($('#a').val());
+			
+			getList(1, $('#p').val() , $('#c').val() , $('#a').val() , type, function(data){		//获取列表
+				var arr=data.list;
+				var html=render(arr);
+				$('.m-list').html(html);
+				pIndex=2;
+				updateCookie();
+			});
+		});
+	});
+	
+	$('#a').change(function(){
+		$('#sltA').html($('#a').val());
+		getList(1, $('#p').val() , $('#c').val() , $('#a').val() , type , function(data){		//获取列表
+			var arr=data.list;
+			var html=render(arr);
+			$('.m-list').html(html);
+			pIndex=2;
+			updateCookie();
+		});
+	});
+}
+
+//获取列表
+function getList(page , province , city , area , t , callback){
+	var oLd=new _loading().build();
+	$.ajax({
+		type: 'GET',
+		url: '/job',
+		data: { p:page , prov:province , c:city , a:area ,type:t},
+		timeout: 10000,
+		dataType: 'json',
+		success: function(data){
+			oLd.del();
+			callback&&callback(data);
+		},
+		error: function(xhr, type){
+			oLd.del();
+			new _msg({cnt:'网络错误，请检查您的网络！'}).build();
+		}
+	});
+}
+//获取地区
+function getArea(zoom , s, callback){
+	var oLd=new _loading().build();
+	$.ajax({
+		type: 'GET',
+		url: '/getArea',
+		data: { pre: zoom, state: s},
+		timeout: 10000,
+		dataType: 'json',
+		success: function(data){
+			oLd.del();
+			callback&&callback(data);
+		},
+		error: function(xhr, type){
+			oLd.del();
+			new _msg({cnt:'网络错误，请检查您的网络！'}).build();
+		}
+	});
+}
+
+
+function updateCookie(){
+	var loc_info='{prov:"'+$('#p').val()+'",c:"'+$('#c').val()+'",a:"'+$('#a').val()+'"}';
+	setCookie(c_name, loc_info ,7);
+}
+
+//搜索框获取焦点 显示搜索控件层
+$("#j-ss1").focus(function(){
+	//window.location.href="/job/renderJobSearchList";
+    return false;
+})
+</script>
+</body></html>

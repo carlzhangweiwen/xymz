@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<!-- saved from url=(0040)http://m.jianzhimao.com/login/rederLogin -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<title>登陆</title>
+ 
+    
+	<!-- No Baidu Siteapp-->
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <!-- no chache -->
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/media50px.min.css">
+    <link rel="stylesheet" href="./css/alt.css">
+    <link rel="stylesheet" href="./css/index.css">
+    
+<script src="./js/zepto.min.js"></script>
+<script src="./js/touch.js"></script>
+<script src="./js/alt.js"></script>
+<script>
+	// 操作cookie
+	// 获取cookie
+	function getCookie(c_name){
+		if (document.cookie.length>0){
+			var c_start=document.cookie.indexOf(c_name + "=");
+			if (c_start!=-1){
+				c_start=c_start + c_name.length+1;
+				var c_end=document.cookie.indexOf(";",c_start);
+				if (c_end==-1){
+					c_end=document.cookie.length;
+				}
+				return unescape(document.cookie.substring(c_start,c_end))
+			}
+		}
+		return ""
+	}
+
+	// 设置cookie
+	function setCookie(c_name,value,expiredays){
+		var exdate=new Date()
+		exdate.setDate(exdate.getDate()+expiredays)
+		document.cookie=c_name+ "=" +escape(value)+
+		((expiredays==null) ? "" : ";expires="+exdate.toGMTString())
+	}
+
+	// 检查cookie
+	function checkCookie(c_name){
+		var c_name=getCookie(c_name)
+		if(c_name!=null && c_name!=""){
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+	//禁止鼠标右键
+	document.oncontextmenu=function(){
+	    return false;
+	};
+
+	// 手机
+	function isMobile(text) {
+		return /^((17[0-9])|(14[0-9])|(13[0-9])|(15[^4,\D])|(18[0-9]))\d{8}$/.test(text);
+	}
+
+	// 邮箱
+	function isEmail(text) {
+		return /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/.test(text);
+	}
+
+	// 日期
+	function isDate(text) {
+		//if (!/^(\d{4})-(\d{2})-(\d{2})$/.test(text)) {
+		//	return false;
+		//}
+		// try {
+		// 	var date = new Date(text);	
+		// 	return true;
+		// } catch (Exception e) {
+		// 	return false;
+		// }
+		return (new Date(text).getDate() == text.substring(text.length-2));
+	}
+
+	// 密码
+	function isPasswprd(text) {
+		return /[a-zA-Z0-9]{6,16}/.test(text);
+	}
+	
+	// 姓名
+	function isName(text) {
+		return text.length > 1 && text.length < 5 && /[\u4e00-\u9fa5A-Za-z.]{2,10}$/.test(text);
+	}
+
+	//弹窗封装
+    function show_alert(text){
+        var oApplyAlt=new _alert({
+            cnt:'<div id="jianli_alt" style="text-align:center;">'+
+            '<p style="padding:10px 0;font-size: 0.32rem;">'+text+'</p>'+
+            '</div>',
+            ft:'<div class="m-tc_btn"><a class="quxiao" href="javascript:" style="color: #fe7418; border: none;">确定</a></div>',
+            overlay:true
+        }).build();
+        $(oApplyAlt).css({"top":"20%","z-index":"10"})
+    }
+
+    //确定按钮
+    $(document).on('click','.quxiao',function (e) {
+        clearTimeout(t)
+        var t=setTimeout($(".cl_btn").click(),500)
+    })
+
+</script>
+</head>
+<body>
+<div class="g-login_box">
+    <!-- 头部 start -->
+    <div class="m-xqtop f-pr">
+        <a href="javascript:history.go(-1);" class="last"> <img src="./img/last.png" alt=""> </a>
+        <h2>账号登录</h2>
+        <div class="m-backIndex f-fr">
+            <a href="javascript:void(0);" class="m-backIndex_btn">首页</a>
+        </div>
+    </div>
+
+<!--  登陆主体内容   -->
+<div class="m-login_box">
+    <div class="g-tx120">
+        <img src="./img/logo.gif" alt="">
+    </div>
+    <div class="m-login_input">
+        <p class="u-b_b"> <label for="user_zh">账号</label><input id="user_zh" type="text" placeholder="手机号码" data-form-un="1447938177144.7197"></p>
+        <p> <label for="user_psw">密码</label><input id="user_psw" type="password" placeholder="6-16位数字或字母" data-form-pw="1447938177144.7197"></p>
+    </div>
+    <a href="#" class="m-inputbtn" style="background-color: #5da72a;">登录</a>
+    <p class="m-for_pasw"><span class="f-fl m-is_pasw">记住密码</span>
+    <!--
+    <a class="f-fr" href="#">忘记密码</a> 
+    -->
+    </p>
+
+    <input id="beforeUrl" type="hidden" value="/">
+</div>
+<!-- 底部  -->
+    <div class="m-login_b">
+        <p><a href="register.html">注册账号</a> &nbsp; | &nbsp; <a href="#">下载APP</a></p>
+    </div>
+</div>
+<script>
+    window.onload=function(){
+    // 记住密码
+    $('.m-is_pasw').tap(function(){
+        $(this).toggleClass("cur")
+    });
+
+    // 读取cookie中的值
+    $("#user_zh").val(getCookie("user_zh"));
+    $("#user_psw").val(getCookie("user_psw"));
+    if (getCookie("is_pasw")) {
+        $('.m-is_pasw').toggleClass("cur", true);
+    } else {
+        $('.m-is_pasw').toggleClass("cur", false);
+    }
+
+    // 登陆按钮点击时进行前端表单验证
+    $('.m-inputbtn').click(function(){
+        var user_zh=$("#user_zh").val();
+        var user_psw=$("#user_psw").val();
+        var is_pasw=$(".m-is_pasw").hasClass("cur"); // 是否记住密码
+        var beforeUrl = $("#beforeUrl").val();
+
+        if(!isMobile(user_zh)){
+            show_alert("请输入正确的手机号码")
+            return;
+        }else if(!/\S/.test(user_psw)){
+            show_alert("请输入正确的登陆密码")
+            return;
+        }
+        location.href='user/userCenter.html';
+        /*$.ajax({
+          type: 'POST',
+          url: '/login/login',
+          data: {
+                user_zh: user_zh,
+                user_psw: user_psw,
+                beforeUrl : beforeUrl,
+                is_pasw: is_pasw
+            },
+          dataType: 'json',
+          timeout: 10000,
+          success: function(data){
+            if( data.result.state == 100 ){
+                if (is_pasw) {
+                    setCookie("user_psw", user_psw, 7);
+                    setCookie("is_pasw", is_pasw, 7);
+                } else {
+                    setCookie("user_psw", "");
+                    setCookie("is_pasw", "");
+                }
+                location.href = data.result.data;
+            }else{
+                show_alert(data.result.msg);
+            }
+          },
+          error: function(xhr, type){
+            show_alert("网络错误");
+          },
+          complete : function () {
+            // 保存当前登录账号
+            setCookie("user_zh", user_zh, 7);
+          }
+        })*/
+        
+
+    });
+    }
+</script>
+
+
+<div id="qb-sougou-search" style="display: none; opacity: 0;"><p>搜索</p><p class="last-btn">复制</p><iframe src=""></iframe></div></body></html>

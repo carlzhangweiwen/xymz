@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<!-- saved from url=(0054)http://m.jianzhimao.com/job/getJob?id=VmYwdlp1YUxmbzQ9 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<title>兼职详情</title>
+    
+     
+    
+	<!-- No Baidu Siteapp-->
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <!-- no chache -->
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/media50px.min.css">
+    <link rel="stylesheet" href="../css/alt.css">
+    <link rel="stylesheet" href="../css/index.css">
+    
+<script src="../js/zepto.min.js"></script>
+<script src="../js/touch.js"></script>
+<script src="../js/alt.js"></script>
+<script>
+	// 操作cookie
+	// 获取cookie
+	function getCookie(c_name){
+		if (document.cookie.length>0){
+			var c_start=document.cookie.indexOf(c_name + "=");
+			if (c_start!=-1){
+				c_start=c_start + c_name.length+1;
+				var c_end=document.cookie.indexOf(";",c_start);
+				if (c_end==-1){
+					c_end=document.cookie.length;
+				}
+				return unescape(document.cookie.substring(c_start,c_end))
+			}
+		}
+		return ""
+	}
+
+	// 设置cookie
+	function setCookie(c_name,value,expiredays){
+		var exdate=new Date()
+		exdate.setDate(exdate.getDate()+expiredays)
+		document.cookie=c_name+ "=" +escape(value)+
+		((expiredays==null) ? "" : ";expires="+exdate.toGMTString())
+	}
+
+	// 检查cookie
+	function checkCookie(c_name){
+		var c_name=getCookie(c_name)
+		if(c_name!=null && c_name!=""){
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+	//禁止鼠标右键
+	document.oncontextmenu=function(){
+	    return false;
+	};
+
+	// 手机
+	function isMobile(text) {
+		return /^((17[0-9])|(14[0-9])|(13[0-9])|(15[^4,\D])|(18[0-9]))\d{8}$/.test(text);
+	}
+
+	// 邮箱
+	function isEmail(text) {
+		return /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/.test(text);
+	}
+
+	// 日期
+	function isDate(text) {
+		//if (!/^(\d{4})-(\d{2})-(\d{2})$/.test(text)) {
+		//	return false;
+		//}
+		// try {
+		// 	var date = new Date(text);	
+		// 	return true;
+		// } catch (Exception e) {
+		// 	return false;
+		// }
+		return (new Date(text).getDate() == text.substring(text.length-2));
+	}
+
+	// 密码
+	function isPasswprd(text) {
+		return /[a-zA-Z0-9]{6,16}/.test(text);
+	}
+	
+	// 姓名
+	function isName(text) {
+		return text.length > 1 && text.length < 5 && /[\u4e00-\u9fa5A-Za-z.]{2,10}$/.test(text);
+	}
+
+	//弹窗封装
+    function show_alert(text){
+        var oApplyAlt=new _alert({
+            cnt:'<div id="jianli_alt" style="text-align:center;">'+
+            '<p style="padding:10px 0;font-size: 0.32rem;">'+text+'</p>'+
+            '</div>',
+            ft:'<div class="m-tc_btn"><a class="quxiao" href="javascript:" style="color: #fe7418; border: none;">确定</a></div>',
+            overlay:true
+        }).build();
+        $(oApplyAlt).css({"top":"20%","z-index":"10"})
+    }
+
+    //确定按钮
+    $(document).on('click','.quxiao',function (e) {
+        clearTimeout(t)
+        var t=setTimeout($(".cl_btn").click(),500)
+    })
+
+</script>
+</head>
+
+<body>
+<!-- 分享弹出层-->
+<div class="m-fxbox" style="display: none;">
+    <img class="f-fr" src="../img/miao.png" alt="">
+</div>
+<!-- 兼职头部 start -->
+<div class="m-xqtop f-pr">
+    <a href="javascript:history.back();" class="last"> <img src="../img/last.png" alt=""> </a>
+    <h2>兼职详情</h2>
+    <div class="m-login f-fr">
+        <a href="../user/userCenter.html"><div class="m-user_center"><img src="../img/user_center.png" alt=""><p>个人中心</p></div></a>
+        <input id="login_user" type="hidden" value="com.jfinal.plugin.activerecord.Record@5bc98ac7 {id:3965210, pwd:c94cdaaf30a10f00dff223ecfc9e493c, phone:15711698981}">
+        <input id="existEnroll" type="hidden" value="false">
+        <input id="jobId" type="hidden" value="VmYwdlp1YUxmbzQ9">
+        <input id="jobType" type="hidden" value="0">
+    </div>
+</div>
+<!-- 兼职标题 star  -->
+<div class="m-xqtit m-list">
+    <h2 class="tit">上海首个天使投资组织实习生</h2>
+    <ol class="f-cb">
+        <li><i class="area">&nbsp;</i>浦东</li>
+        <li><i class="date">&nbsp;</i>7分钟前</li>
+        <li><i class="visit">&nbsp;</i>1404</li>
+    </ol>
+</div>
+
+<!-- 兼职描述 star  -->
+<div class="m-xqcon">
+    <!-- 兼职信息 start -->
+    <ul class="m-jzxq">
+        <li>兼职类型：<span class="lx">实习</span></li>
+        <li>发布机构：<span class="gs"><a href="#">华盛汽车服务有限公司</a></span></li>
+        <li>招聘人数：<span class="rs">2人</span></li>
+        <li>工资待遇：<span class="xz">100元/天</span></li>
+        <input id="compUserId" type="hidden" value="OWVmSStSR0JGM2M9">
+    </ul>
+    <!--  兼职详细内容描述 -->
+    <div class="m-jzxp_con">
+            <h3 class="tit">工作内容:</h3>
+            <pre class="con"> 【简介】：为响应“大众创业、万众创新”的号召以及配合上海建设“全球科技创新中心”的国家战略，日前，多位创业大佬、天使投资牛人齐聚上海，宣布上海首个天使投资人联合组织——“海天会”发起成立。
+　　据悉，海天会是一个汇聚天使投资人群和资源，联合社会创新创业人群的社群平台，也是一个集国际天使投资经验，充分提升上海和长三角在全国乃至全球天使投资圈的社会价值，推动中国天使事业发展的平台。它的成立，不仅是上海地区天使投资领域的盛事，也将对江浙沪乃至全国的天使投资和创新创业产生深远的影响。
+（具体介绍请自行百度，以上节选于11月3日上海金融报）
+【人员要求】：1 男女各一名，全日制本科在读或研究生在读，文笔较好，经管类专业优先。
+                      2 做事细心、踏实，有较强的责任心和主动性，积极热情。
+                      3 有良好的沟通能力、协调组织能力，学习能力强。
+【工作内容】：协助海天会运营团队开展各项工作，包括会员发展与服务、市场推广合作、媒体活动、活动执行、政府及孵化器对接、以及投资管理等。
+【工作时间】：此为实习岗，可即时入职，做五休二，朝九晚六。
+【工作地点】：陆家嘴  环球金融中心
+【工资待遇】：100元/天，按天算，按月结。
+
+PS   海天会发起人陶闯先生（前PPTV CEO，知卓资本董事长）为我公司投资方，故代为招聘实习生。 同学们请准备好个人简历，然后速度联系袁小姐 ！
+            </pre>
+            <span class="ts">
+                （本兼职由兼职猫的企业发布，信息经过核实并可信。）
+            </span>
+    </div>
+    <!-- 工作地址，地图引导  -->
+    <div class="m-jzabout f-cb">
+        <address>
+            详细地址 : 上海市上海浦东环球金融中心
+        </address>
+        <div class="map">
+            <a href="http://api.map.baidu.com/marker?location=31.239652,121.513463&title=%E5%8D%8E%E7%9B%9B%E6%B1%BD%E8%BD%A6%E6%9C%8D%E5%8A%A1%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8&content=%E4%B8%8A%E6%B5%B7%E5%B8%82%E4%B8%8A%E6%B5%B7%E6%B5%A6%E4%B8%9C%E7%8E%AF%E7%90%83%E9%87%91%E8%9E%8D%E4%B8%AD%E5%BF%83&output=html&src=yourComponyName|yourAppName"><img src="../img/map.png" alt=""></a>
+        </div>
+    </div>
+    <!-- 联系方式 -->
+    <div class="m-jxcall">
+        <ul>
+            <li>联系人：袁小姐</li>
+            <li>联系电话：1362168****</li>　　　
+            <li class="ts">（提示：凡收取费用的兼职，需谨慎！）</li>
+        </ul>
+
+        <div class="call">
+            <div id="isEnroll" style="display: none;">
+                <p style="font-size: 0.24rem;">已报名</p>
+            </div>
+            <div id="notEnroll">
+                <span class="apply f-fl" id="apply"><img src="../img/sns.jpg" alt=""></span>    
+            </div>
+            <div id="toTel" style="display: none;" class="call">
+                <span class="apply f-fl" id="callNumber"><img src="../img/call.png" alt=""></span>
+                <div id="callNumber_2"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    window.onload=function(){
+        var isOk = true;
+        var existEnroll = $("#existEnroll").val();
+        var compUserId = $("#compUserId").val();
+        var jobId = $("#jobId").val();
+        var jobType = $("#jobType").val();
+        if (compUserId == "null") {
+            $("#toTel").show();
+            $("#isEnroll").hide();
+            $("#notEnroll").hide();
+        } else {
+            $("#toTel").hide();
+            if (existEnroll == "true") {
+                $("#isEnroll").show();
+                $("#notEnroll").hide();
+            } else {
+                $("#isEnroll").hide();
+                $("#notEnroll").show();
+            }
+        }
+
+        $("#callNumber").tap(function () {
+            if (isOk) {
+                isOk = false;
+                $.ajax({
+                    type : "POST",
+                    url : "/job/enrollJobForImport",
+                    dataType : 'json',
+                    timeout : 10000,
+                    success : function(data) {
+                        if (data.result.state == 100) {
+                            $("#callNumber_2").append("<a id='doCallNumber' href='tel:" + data.result.data + "'></a>");
+                            $("#doCallNumber").click();
+                            $("#callNumber_2").empty();
+                        } else {
+                            show_alert(data.result.msg);
+                        }
+                    },
+                    error : function (xhr, type) {
+
+                    },
+                    complete : function (data) {
+                        isOk = true;
+                    }
+                })
+            }
+            
+        })
+    	 /*$('#apply').tap(function(){
+            var user_state=0;
+            if ($("#login_user").val() == "null") {
+                user_state = 0;
+            } else {
+                user_state = 1;
+            }
+            //获取用户状态
+            if(user_state==0){
+                if (isOk) {
+                    isOk = false;
+                    //未登录时用户报名兼职弹窗引导登录或下载app
+                    var oApplyAlt=new _alert({
+                        cnt:'<div id="apply_alt" style="text-align:center;">'+
+                        '<p><span class="img_bm"><span class="bd">报名!</span><i class="tail"></i></span></p>'+
+                        '<p style="padding:10px 0;font-size: 0.32rem;">用兼职猫APP报名更容易成功呦！</p>'+
+                        '<p style="padding:10px 0; font-size: 0.32rem; color: #fe4318;">安装一个玩玩吧  ╮(╯▽╰)╭</p>'+
+                        '<p style="padding:10px 0;">PS：兼职猫招人效率很高哦！ </p>'+
+                        '<small></small>'+
+                        '</div>',
+                        ft:'<a class="yes_btn" style="display:inline-block; font-size:16px; width:70%;background:#fd711c;" href="http://www.jianzhimao.com/wap/index.html">下载兼职猫报名</a>' +
+                        '<a class="yes_btn" style="display:inline-block; font-size:16px; width:70%;background:#5da72a;" href="/login/rederLogin?url=/job/getJob?id=' + jobId + '">在线登录报名</a>',
+                        overlay:true
+                    }).build();
+                    $(oApplyAlt).css("top","20%")
+                    isOk = true;
+                }
+            }else if(user_state==1){
+                if (isOk) {
+                    isOk = false;
+                    $.ajax({
+                      type: 'POST',
+                      url: '/job/enrollJob',
+                      dataType: 'json',
+                      timeout: 10000,
+                      success: function(data){
+                        if (data.result.state == 100) {
+                            //报名流程
+                            var oApplyAlt=new _alert({
+                                cnt:'<div id="jianli_alt" style="text-align:center;">'+
+                                '<p style="padding:10px 0;font-size: 0.32rem;">' + data.result.msg + '</p>'+
+                                '</div>',
+                                ft:'<div class="m-tc_btn"><a class="quxiao" href="javascript:">确认</a>' +
+                                '<a c href="/user/toUserApply" style="color: #fe7418;">查看我的申请</a></div>',
+                                overlay:true
+                            }).build();
+                            $(oApplyAlt).css("top","20%")
+                            $("#isEnroll").show();
+                            $("#notEnroll").hide();
+                        } else {
+                            if (data.result.msg == "请先完善您的简历") {
+                                //已登录若用户未完善简历弹窗引导完善简历后才能报名
+                                var oApplyAlt=new _alert({
+                                    cnt:'<div id="jianli_alt" style="text-align:center;">'+
+                                    '<p style="padding:10px 0;font-size: 0.32rem;">' + data.result.msg + '</p>'+
+                                    '</div>',
+                                    ft:'<div class="m-tc_btn"><a class="quxiao" href="javascript:">取消</a>' +
+                                    '<a c href="/user/toUserData" style="color: #fe7418;">去完善</a></div>',
+                                    overlay:true
+                                }).build();
+                                $(oApplyAlt).css("top","20%")
+                            } else if (data.result.msg == "未认证用户不能申请快捷兼职,请下载app进行实名认证") {
+                                var oApplyAlt=new _alert({
+                                    cnt:'<div id="jianli_alt" style="text-align:center;">'+
+                                    '<p style="padding:10px 0;font-size: 0.32rem;">快结兼职在兼职猫app中才能报名</p>'+
+                                    '</div>',
+                                    ft: '<div class="m-tc_btn"><a class="quxiao" href="#">确定</a>' + '<a c href="http://www.jianzhimao.com/wap/index.html"  style="color: #fe7418;">下载app</a></div>',
+                                    overlay:true
+                                }).build();
+                                $(oApplyAlt).css("top","20%")
+                            } else {
+                                show_alert(data.result.msg);
+                            }
+                        }
+                      },
+                      error: function(xhr, type){
+                        show_alert("网络错误");
+                      },
+                      complete : function (data) {
+                        isOk = true;
+                      }
+                    })    
+                }
+                
+            }
+        });*/
+        //完善简历弹窗 取消按钮被点击
+        $(document).on('touchend','.quxiao',function (e) {
+            $(".cl_btn").click();
+        })
+        // 分享按钮
+        $('#j-fx').tap(function(){
+            $(".m-fxbox").show()
+        });
+    }
+</script>
+</body></html>
