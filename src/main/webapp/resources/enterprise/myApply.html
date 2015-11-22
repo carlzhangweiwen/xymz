@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<!-- saved from url=(0040)http://m.jianzhimao.com/user/toUserApply -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<title>个人资料</title>
+    <!-- No Baidu Siteapp-->
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <!-- no chache -->
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/media50px.min.css">
+    <link rel="stylesheet" href="../css/alt.css">
+    <link rel="stylesheet" href="../css/index.css">
+    	<style>
+    		.my_post_tabs{
+    			text-align: center;
+			    color: #696969;
+			    font-size: 13px;
+    		}
+    		.my_post_tabs span{
+    			display: inline-block;
+			    width:32.5%;
+			    border-bottom: 1px solid #cbcbcb;
+			    padding: .8em 0;
+			    cursor: pointer;
+			    position: relative;
+    		}
+    		
+    		
+    	</style>
+</head>
+<body>
+<div class="g-usercenter">
+   
+<div class="g-reg f-pr" style="min-height: 9rem;">
+    <!-- 头部 start -->
+    <div class="m-xqtop f-pr" style="margin-bottom: 0">
+        <a href="javascript:history.go(-1);" class="last"> <img src="../img/last.png" alt=""> </a>
+        <h2>我的发布</h2>
+        <div class="m-backIndex f-fr">
+            <a href="#" class="m-backIndex_btn">首页</a>
+        </div>
+    </div>
+    <!-- 个人中心 主体 -->
+    <div>
+    	<nav class="my_post_tabs">
+    		<span class="auditing_tab">等待审核</span>
+    		<span class="recruiting_tab">正在招聘</span>
+    		<span class="dead_line_tab">截止报名</span>
+    	</nav>
+    </div>
+    <div class="g-apply_box">
+        <ul class="m-list">
+        	
+            <li url="#">
+                <div>
+                    <i class="type sx"></i><h2 class="tit">上海首个天使投资组织实习生</h2>
+                    <ol class="f-cb"><li><i class="area">&nbsp;</i>浦东</li><li><i class="date">&nbsp;</i>4分钟前</li><li class="jiage"><span>100</span>元/天</li></ol>
+                </div>
+                <p class="genzhong">投递跟踪</p>
+            </li>
+          
+            <li url="#">
+                <div>
+                    <i class="type xn"></i><h2 class="tit">复旦大学校内公益活动协助</h2>
+                    <ol class="f-cb"><li><i class="area">&nbsp;</i>杨浦</li><li><i class="date">&nbsp;</i>5分钟前</li><li class="jiage"><span>300</span>元/次</li></ol>
+                </div>
+                <p class="genzhong">投递跟踪</p>
+            </li>
+          
+            <li url="#">
+                <div>
+                    <i class="type qt"></i><h2 class="tit">招募上海兼职猫校园领事</h2>
+                    <ol class="f-cb"><li><i class="area">&nbsp;</i>杨浦</li><li><i class="date">&nbsp;</i>10分钟前</li><li class="jiage"><span>1000</span>元/月</li></ol>
+                </div>
+                <p class="genzhong">投递跟踪</p>
+            </li>
+           
+
+        </ul>
+    </div>
+</div>
+
+<script src="../js/zepto.min.js"></script>
+<script src="../js/touch.js"></script>
+<script src="../js/alt.js"></script>
+<script>
+
+    //禁止鼠标右键
+document.oncontextmenu=function(){
+return false;
+};
+
+window.onload=function() {
+    $('.m-list').delegate('ul>li>div','tap',function(){
+        window.location.href=$(this).parent().attr('url');
+    });
+
+   /* $('.m-list').delegate('.genzhong','tap',function(){
+        var oApplyAlt=new _alert({
+            cnt:'<div id="apply_alt" style="text-align:center;">'+
+            '<p><span class="img_bm"><img src="/assets/img/wodaomao.png" width="60%" alt=""/></span></p>'+
+            '<p style="padding:10px 0;font-size: 0.32rem;">用兼职猫APP才能查看投递跟踪喔</p>'+
+            '<p style="padding:10px 0;">PS：兼职猫招人效率很高哦！ </p>'+
+            '<small></small>'+
+            '</div>',
+            ft:'<a class="yes_btn" style="display:inline-block; font-size:16px; width:70%;background:#5da72a;" href="http://www.jianzhimao.com/wap/index.html">下载兼职猫查看</a>',
+            overlay:true
+        }).build();
+        $(oApplyAlt).css("top","20%")
+        //alert("ok")
+    });*/
+
+
+}
+
+
+
+</script>
+
+</div></body></html>
