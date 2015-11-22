@@ -1,4 +1,4 @@
-package com.win.xymz;
+package com.win.xymz.controller;
 
 import java.text.DateFormat;
 import java.util.Date;
