@@ -277,3 +277,9 @@ footer .link a:active{ color:#ee5310;}
 .u-photo_btn{ display: block; margin: 0 auto; width: 90%; height:0.8rem; line-height: 0.8rem; text-align: center; background-color: #99cd38; color: #fff; font-size: 0.32rem; border-radius: 5px;}
 .u-photo_btn:hover{ background-color: #82CD11; color: #fff;}
 
+/*企业*/
+.my_post_tabs{text-align:center;color:#696969;font-size:13px}
+.my_post_tabs span{display:inline-block;width:32.5%;border-bottom:1px solid #cbcbcb;padding:.8em 0;cursor:pointer;position:relative}
+.my_post_tabs span:before{position:absolute;right:0;content:"";width:1px;height:.3rem;overflow:hidden;background:#eaeaea}
+.my_post_tabs span.cur:after{position:absolute;content:"";width:65%;bottom:0rem;left:17.5%;height:.02rem;background:#fc6621;overflow:hidden}
+
