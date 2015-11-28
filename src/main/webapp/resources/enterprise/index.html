@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- saved from url=(0040)http://m.jianzhimao.com/user/toUserApply -->
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
@@ -12,6 +11,64 @@
     <link rel="stylesheet" href="../css/media50px.min.css">
     <link rel="stylesheet" href="../css/alt.css">
     <link rel="stylesheet" href="../css/index.css">
+   <style>
+   	.tentrance{
+   		positon:relative;
+   	}
+	.po{
+		position:relative;
+		display: -webkit-box;
+	    display: -moz-box;
+	    display: -ms-flexbox;
+	    display: -webkit-flex; 
+	    display: flex; 
+	}
+	.po>div{
+		width:2rem;
+		height:1.62rem;
+		position:relative;
+	}
+	.pic{
+		box-sizing: border-box;
+	    line-height: 0;
+	    width: 0.9rem;
+	    height: 0.9rem;
+	    position: absolute;
+	    background-image: url(../img/mlogo.png);
+	    background-size: contain;
+	    background-position: 50% 50%;
+	    background-repeat: no-repeat;
+    }
+    .pic1{
+    	background-image: url(../img/enterprise/wlmz_01.png);
+    }
+    .pic2{
+    	background-image: url(../img/enterprise/wlmz_02.png);
+    }
+    .pic3{
+    	background-image: url(../img/enterprise/wlmz_03.png);
+    }
+    .pic4{
+    	background-image: url(../img/enterprise/wlmz_04.png);
+    }
+    .par{
+        box-sizing: border-box;
+	    line-height: 0;
+	    margin-top: 0.213rem;
+	    margin-left: 0.351rem;
+	    width: 0.9rem;
+	    height: 0.9rem;
+	    position: relative;
+    }
+    .f{
+    	box-sizing: border-box;
+	    text-align: center;
+	    font-size: 12px;
+	    color: rgb(102, 102, 102);
+	    padding-top:0.2rem;
+    }
+   	
+   </style>
 </head>
 <body>
 <div class="g-usercenter">
@@ -26,50 +83,46 @@
         </div>
     </div>
     <!-- 个人中心 主体 -->
-    <header class="">
-    	<a>我的发布</a>
-    	<a>发布兼职</a>
-    	<a>申请认证</a>
-    	<a>帐号设置</a>
-    </header>
-    <div>
-    	<div class="my_post_tabs">
-    		<span>等待审核</span>
-    		<span class="cur">正在招聘</span>
-    		<span>截止报名</span>
-    	</div>
+    <div class="g-userc_box">
+            <div class="g-userc_t f-cb">
+                <div class="g-tx80 f-fl">
+                    <img src="../img/mlogo.png" alt="">
+                </div>
+                <div class="g-userc_c f-fl">
+                    <!-- 男 man  女 woman 改变类名 即可 -->
+                    <p class="name man">某某企业</p>
+                    <p class="tel">申请认证</p>
+                </div>
+            </div>
     </div>
-     <div class="g-apply_box">
-        <ul class="m-list">
-        	
-            <li url="#">
-                <div>
-                    <i class="type sx"></i><h2 class="tit">上海首个天使投资组织实习生</h2>
-                    <ol class="f-cb"><li><i class="area">&nbsp;</i>浦东</li><li><i class="date">&nbsp;</i>4分钟前</li><li class="jiage"><span>100</span>元/天</li></ol>
-                </div>
-                <p class="genzhong">投递跟踪</p>
-            </li>
-          
-            <li url="#">
-                <div>
-                    <i class="type xn"></i><h2 class="tit">复旦大学校内公益活动协助</h2>
-                    <ol class="f-cb"><li><i class="area">&nbsp;</i>杨浦</li><li><i class="date">&nbsp;</i>5分钟前</li><li class="jiage"><span>300</span>元/次</li></ol>
-                </div>
-                <p class="genzhong">投递跟踪</p>
-            </li>
-          
-            <li url="#">
-                <div>
-                    <i class="type qt"></i><h2 class="tit">招募上海兼职猫校园领事</h2>
-                    <ol class="f-cb"><li><i class="area">&nbsp;</i>杨浦</li><li><i class="date">&nbsp;</i>10分钟前</li><li class="jiage"><span>1000</span>元/月</li></ol>
-                </div>
-                <p class="genzhong">投递跟踪</p>
-            </li>
-           
-
-        </ul>
-    </div>
-</div>
+    <section class="tentrance">
+    	<div class="po" id="entrance">
+			<div>
+				<div class="par">
+					<div class="pic pic1"></div>
+				</div>
+				<div class="f">我的发布</a></div>
+			</div>
+			<div>
+				<div class="par">
+					<div class="pic pic2"></div>
+				</div>
+				<div class="f">发布兼职</div>
+			</div>
+			<div>
+				<div class="par">
+					<div class="pic pic3"></div>
+				</div>
+				<div class="f">申请认证</div>
+			</div>
+			<div>
+				<div class="par">
+					<div class="pic pic4"></div>
+				</div>
+				<div class="f">帐号设置</div>
+			</div>
+		</div>
+    </section>
 
 <script src="../js/zepto.min.js"></script>
 <script src="../js/touch.js"></script>
@@ -82,12 +135,11 @@ return false;
 };
 
 window.onload=function() {
-   
-
-
+	$('#entrance>div').tap(function(){
+		//alert($(this).index());
+		location.href="./myApply.html";
+	});
 }
-
-
 
 </script>
 
