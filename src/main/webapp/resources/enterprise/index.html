@@ -13,10 +13,11 @@
     <link rel="stylesheet" href="../css/index.css">
    <style>
    	.tentrance{
-   		positon:relative;
+   		position:relative;
+   		width:100%;
+   		overflow:hidden;
    	}
-	.po{
-		position:relative;
+	.po{		
 		display: -webkit-box;
 	    display: -moz-box;
 	    display: -ms-flexbox;
@@ -24,7 +25,7 @@
 	    display: flex; 
 	}
 	.po>div{
-		width:2rem;
+		width:1.62rem;
 		height:1.62rem;
 		position:relative;
 	}
@@ -52,20 +53,21 @@
     	background-image: url(../img/enterprise/wlmz_04.png);
     }
     .par{
+        position: relative;
         box-sizing: border-box;
 	    line-height: 0;
-	    margin-top: 0.213rem;
+	    padding-top: 0.213rem;
 	    margin-left: 0.351rem;
 	    width: 0.9rem;
 	    height: 0.9rem;
-	    position: relative;
+	    
     }
     .f{
     	box-sizing: border-box;
 	    text-align: center;
 	    font-size: 12px;
 	    color: rgb(102, 102, 102);
-	    padding-top:0.2rem;
+	    padding-top:0.4rem;
     }
    	
    </style>
@@ -76,11 +78,11 @@
 <div class="g-reg f-pr" style="min-height: 9rem;">
     <!-- 头部 start -->
     <div class="m-xqtop f-pr" style="margin-bottom: 0">
-        <a href="javascript:history.go(-1);" class="last"> <img src="../img/last.png" alt=""> </a>
-        <h2>管理中心</h2>
-        <div class="m-backIndex f-fr">
+        <!--<a href="javascript:history.go(-1);" class="last"> <img src="../img/last.png" alt=""> </a>-->
+        <h2>企业中心</h2>
+        <!--<div class="m-backIndex f-fr">
             <a href="#" class="m-backIndex_btn">首页</a>
-        </div>
+        </div>-->
     </div>
     <!-- 个人中心 主体 -->
     <div class="g-userc_box">
@@ -96,7 +98,7 @@
             </div>
     </div>
     <section class="tentrance">
-    	<div class="po" id="entrance">
+        <div class="po" id="entrance" >
 			<div>
 				<div class="par">
 					<div class="pic pic1"></div>
@@ -136,8 +138,8 @@ return false;
 
 window.onload=function() {
 	$('#entrance>div').tap(function(){
-		//alert($(this).index());
-		location.href="./myApply.html";
+		var i = $(this).index();
+		location.href={"0":"./myApply.html","1":"./newApply.html"}[i] || "./myApply.html";
 	});
 }
 
