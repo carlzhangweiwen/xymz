@@ -283,3 +283,10 @@ footer .link a:active{ color:#ee5310;}
 .my_post_tabs span:before{position:absolute;right:0;content:"";width:1px;height:.3rem;overflow:hidden;background:#eaeaea}
 .my_post_tabs span.cur:after{position:absolute;content:"";width:65%;bottom:0rem;left:17.5%;height:.02rem;background:#fc6621;overflow:hidden}
 
+/*移除HTML5 input在type="number"时的上下小箭头*/
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button{
+    -webkit-appearance: none !important;
+    margin: 0; 
+}
+
