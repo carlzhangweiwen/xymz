@@ -1,41 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE log4j:configuration PUBLIC "-//APACHE//DTD LOG4J 1.2//EN" "log4j.dtd">
-<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+<!DOCTYPE log4j:configuration SYSTEM "http://toolkit.alibaba-inc.com/dtd/log4j/log4j.dtd">
+<log4j:configuration xmlns:log4j='http://jakarta.apache.org/log4j/'>
+    <appender name="consoleAppender" class="org.apache.log4j.ConsoleAppender">
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="[%d{yyyy-MM-dd HH:mm:ss.SSS}]-[%c]-[%t] %x - %m%n"/>
+        </layout>
+    </appender>
 
-	<!-- Appenders -->
-	<appender name="console" class="org.apache.log4j.ConsoleAppender">
-		<param name="Target" value="System.out" />
-		<layout class="org.apache.log4j.PatternLayout">
-			<param name="ConversionPattern" value="%-5p: %c - %m%n" />
-		</layout>
-	</appender>
-	
-	<!-- Application Loggers -->
-	<logger name="com.win.xymz">
-		<level value="info" />
-	</logger>
-	
-	<!-- 3rdparty Loggers -->
-	<logger name="org.springframework.core">
-		<level value="info" />
-	</logger>
-	
-	<logger name="org.springframework.beans">
-		<level value="info" />
-	</logger>
-	
-	<logger name="org.springframework.context">
-		<level value="info" />
-	</logger>
+	<appender name="applog" class="org.apache.log4j.DailyRollingFileAppender">  
+        <param name="Append" value="true"></param>  
+        <param name="DatePattern" value="'_'yyyyMMdd'.log'"></param>  
+        <param name="File" value="/logs/xymz"></param>  
+        <layout class="org.apache.log4j.PatternLayout">  
+            <param name="ConversionPattern" value="[%d{yyyy-MM-dd HH:mm:ss.SSS}]-[%c]-[%t] %x - %m%n"></param>  
+        </layout>  
+    </appender>
 
-	<logger name="org.springframework.web">
-		<level value="info" />
-	</logger>
+    <!-- Mybatis and SQL -->
+    <logger name="org.apache.ibatis" additivity="true">
+        <level value="INFO"/>
+        <appender-ref ref="consoleAppender"/>
+        <appender-ref ref="applog"/>
+    </logger>
 
-	<!-- Root Logger -->
-	<root>
-		<priority value="info" />
-		<appender-ref ref="console" />
-	</root>
-	
+    <logger name="org.mybatis.spring" additivity="true">
+        <level value="ERROR"/>
+        <appender-ref ref="consoleAppender"/>
+        <appender-ref ref="applog"/>
+    </logger>
+    <logger name="java.sql" additivity="true">
+        <level value="INFO"/>
+        <appender-ref ref="consoleAppender"/>
+        <appender-ref ref="applog"/>
+    </logger>
+
+    <logger name="java.sql.Connection" additivity="true">
+        <level value="INFO"/>
+        <appender-ref ref="consoleAppender"/>
+        <appender-ref ref="applog"/>
+    </logger>
+
+    <logger name="java.sql.Statement" additivity="true">
+        <level value="INFO"/>
+        <appender-ref ref="consoleAppender"/>
+        <appender-ref ref="applog"/>
+    </logger>
+
+    <logger name="java.sql.PreparedStatement" additivity="true">
+        <level value="INFO"/>
+        <appender-ref ref="consoleAppender"/>
+        <appender-ref ref="applog"/>
+    </logger>
+
+    <!-- Spring -->
+    <logger name="org.springframework" additivity="true">
+        <level value="ERROR"/>
+        <appender-ref ref="consoleAppender"/>
+        <appender-ref ref="applog"/>
+    </logger>
+
+    <!-- ActiveMQ -->
+    <logger name="org.apache.activemq" additivity="true">
+        <level value="ERROR"/>
+        <appender-ref ref="consoleAppender"/>
+        <appender-ref ref="applog"/>
+    </logger>
+    
+    <root>
+        <level value="DEBUG"/>
+        <appender-ref ref="consoleAppender"/>
+        <appender-ref ref="applog"/>
+    </root>
 </log4j:configuration>
