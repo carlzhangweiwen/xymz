@@ -1,0 +1,20 @@
+root登陆
+1.创建用户
+create USER 'xymz'@'%' identified by '123456';
+
+2.创建数据库
+create database xymz;
+
+3.赋权
+grant all privileges on xymz.* to 'xymz'@'%' with grant option;
+
+xymz登陆
+1.建立测试表
+	DROP TABLE IF EXISTS `test`;
+	CREATE TABLE `test` (
+	  `id` varchar(10) DEFAULT NULL,
+	  `name` varchar(20) DEFAULT NULL,
+	  `password` varchar(50) DEFAULT NULL
+	)
+2.插入测试数据
+	INSERT INTO `test` VALUES ('1','1','1'),('2','2','2');

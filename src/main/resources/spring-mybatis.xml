@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jee="http://www.springframework.org/schema/jee" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="    
+			http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+            http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd  
+            http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd  
+            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd  
+            http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-4.0.xsd  
+            http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd"
+	default-autowire="byName" default-lazy-init="true">
+
+	<context:component-scan base-package="com.win.xymz" />
+	<mvc:annotation-driven />
+	
+	<!-- database -->
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+		<property name="driverClass" value="com.mysql.jdbc.Driver" />
+		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/xymz?useUnicode=true&amp;characterEncoding=UTF-8" />
+		<property name="properties" ref="dataSourceProperties"/>
+		<property name="minPoolSize" value="5" />
+		<property name="maxPoolSize" value="50" />
+		<property name="initialPoolSize" value="5" />
+		<property name="maxIdleTime" value="180" />
+		<property name="acquireIncrement" value="5" />
+		<property name="idleConnectionTestPeriod" value="30" />
+	</bean>
+	
+	<bean id="dataSourceProperties" class="com.win.xymz.common.config.PropertiesEncryptFactoryBean">
+        <property name="properties">
+            <props>
+                <prop key="user">56DA1D7567E40A8C</prop>
+                <prop key="password">9AF04F24BA5D7FCA</prop>
+            </props>
+        </property>
+    </bean>	
+	
+	<!-- Transaction -->
+	<bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">   
+		<property name="dataSource" ref="dataSource"/>   
+	</bean>
+
+	<tx:advice id="txAdvice" transaction-manager="txManager">
+		<tx:attributes>
+			<tx:method name="save*" propagation="REQUIRED" isolation="DEFAULT" rollback-for="java.lang.Exception"/>
+			<tx:method name="batchSave*" propagation="REQUIRED" isolation="DEFAULT" rollback-for="java.lang.Exception"/>
+			<tx:method name="add*" propagation="REQUIRED" isolation="DEFAULT" rollback-for="java.lang.Exception"/>
+			<tx:method name="batchAdd*" propagation="REQUIRED" isolation="DEFAULT" rollback-for="java.lang.Exception"/>
+			<tx:method name="insert*" propagation="REQUIRED" isolation="DEFAULT" rollback-for="java.lang.Exception"/>  
+			<tx:method name="batchInsert*" propagation="REQUIRED" isolation="DEFAULT" rollback-for="java.lang.Exception"/>  
+			<tx:method name="delete*" propagation="REQUIRED" isolation="DEFAULT" rollback-for="java.lang.Exception"/>  
+			<tx:method name="remove*" propagation="REQUIRED" isolation="DEFAULT" rollback-for="java.lang.Exception"/>  
+			<tx:method name="update*" propagation="REQUIRED" isolation="DEFAULT" rollback-for="java.lang.Exception"/>
+			<tx:method name="edit*" propagation="REQUIRED" isolation="DEFAULT" rollback-for="java.lang.Exception"/>
+			<tx:method name="change*" propagation="REQUIRED" isolation="DEFAULT" rollback-for="java.lang.Exception"/>
+			<tx:method name="set*" propagation="REQUIRED" isolation="DEFAULT" rollback-for="java.lang.Exception"/>
+			<tx:method name="merge*" propagation="REQUIRED" isolation="DEFAULT" rollback-for="java.lang.Exception"/>    
+			<tx:method name="select*" read-only="true"/> 
+			<tx:method name="get*" read-only="true"/> 
+			<tx:method name="find*" read-only="true"/>  
+			<tx:method name="query*" read-only="true"/>  
+			<tx:method name="load*" read-only="true"/>  
+		</tx:attributes>
+	</tx:advice> 
+	
+	<aop:config>
+		<aop:pointcut id="point1" expression="execution(* com.win.xymz.service.*.*(..))" />
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="point1" />
+	</aop:config>
+	
+	<!-- MyBatis -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="configLocation" value="classpath:mybatis-config.xml"></property>
+	  	<!-- auto scan mapping.xml -->
+	  	<property name="mapperLocations" value="classpath:com/win/xymz/mapper/*.xml"/>
+	  	<property name="typeAliasesPackage" value="com.win.xymz.vo" /> 
+	</bean>
+	
+	<!-- scan mapper.java  -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">    
+	    <property name="basePackage" value="com.win.xymz.mapperInterface" />
+	    <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
+	</bean>
+</beans>
