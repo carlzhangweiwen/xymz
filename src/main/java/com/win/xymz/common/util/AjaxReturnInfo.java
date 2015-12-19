@@ -5,18 +5,18 @@ import java.util.Map;
 import org.springframework.util.StringUtils;
 
 /**
- * AjaxÍ³Ò»·µ»Ø¶ÔÏó
+ * Ajaxç»Ÿä¸€è¿”å›å¯¹è±¡
  * @author seven
  */
 public class AjaxReturnInfo {
 	
-	private boolean success=true;	// true or false£¬Ä¬ÈÏÎªtrue
-	private String message;			// ·µ»ØĞÅÏ¢
+	private boolean success=true;	// true or falseï¼Œé»˜è®¤ä¸ºtrue
+	private String message;			// è¿”å›ä¿¡æ¯
 	private Exception exception;
-	private Map<String, Object> datas = new HashMap<String, Object>(); // ·µ»ØµÄÊı¾İ
+	private Map<String, Object> datas = new HashMap<String, Object>(); // è¿”å›çš„æ•°æ®
 
 	/**
-	 * È¡µÃ³É¹¦×´Ì¬µÄ·µ»Ø¶ÔÏó
+	 * å–å¾—æˆåŠŸçŠ¶æ€çš„è¿”å›å¯¹è±¡
 	 * @return success
 	 * @param message
 	 */
@@ -27,9 +27,9 @@ public class AjaxReturnInfo {
 	}
 
 	/**
-	 * È¡µÃÊ§°Ü×´Ì¬µÄ·µ»Ø¶ÔÏó
+	 * å–å¾—å¤±è´¥çŠ¶æ€çš„è¿”å›å¯¹è±¡
 	 * 
-	 * @return failed¶ÔÏó
+	 * @return failedå¯¹è±¡
 	 * @param message
 	 */
 	public static AjaxReturnInfo failed(String message) {
@@ -39,7 +39,7 @@ public class AjaxReturnInfo {
 	}
 
 	/**
-	 * Ë½ÓĞµÄ¹¹Ôìº¯Êı
+	 * ç§æœ‰çš„æ„é€ å‡½æ•°
 	 * @param result
 	 *            'true' or 'false'
 	 */
@@ -48,14 +48,14 @@ public class AjaxReturnInfo {
 	}
 	
 	/**
-	 * ¹¹Ôìº¯Êı
-	 * successÄ¬ÈÏÊÇ³É¹¦µÄ
+	 * æ„é€ å‡½æ•°
+	 * successé»˜è®¤æ˜¯æˆåŠŸçš„
 	 */
 	public AjaxReturnInfo(){
 	}
 	
 	/**
-	 * È¡µÃ³É¹¦±êÖ¾
+	 * å–å¾—æˆåŠŸæ ‡å¿—
 	 * 
 	 * @return 'true' or 'false'
 	 */
@@ -64,7 +64,7 @@ public class AjaxReturnInfo {
 	}
 	
 	/**
-	 * ÉèÖÃ³É¹¦±êÖ¾
+	 * è®¾ç½®æˆåŠŸæ ‡å¿—
 	 * 
 	 * @param result 'true' or 'false'
 	 */
@@ -73,33 +73,33 @@ public class AjaxReturnInfo {
 	}
 	
 	/**
-	 * »ñµÃ·µ»ØĞÅÏ¢
-	 * @return ·µ»ØĞÅÏ¢
+	 * è·å¾—è¿”å›ä¿¡æ¯
+	 * @return è¿”å›ä¿¡æ¯
 	 */
 	public String getMessage() {
 		return message;
 	}
 	
 	/**
-	 * ÉèÖÃ·µ»ØĞÅÏ¢
-	 * @return ·µ»ØĞÅÏ¢
+	 * è®¾ç½®è¿”å›ä¿¡æ¯
+	 * @return è¿”å›ä¿¡æ¯
 	 */
 	public void setMessage(String mess) {
 		this.message=mess;
 	}
 
 	/**
-	 * È¡µÃËùÓĞÊı¾İ
-	 * @return Êı¾İ¼¯ºÏ
+	 * å–å¾—æ‰€æœ‰æ•°æ®
+	 * @return æ•°æ®é›†åˆ
 	 */
 	public Map<String, Object> getDatas() {
 		return datas;
 	}
 	
 	/**
-	 * Ìí¼ÓÊı¾İ
-	 * @param key  KeyÖµ
-	 * @param obj  ¶ÔÏó
+	 * æ·»åŠ æ•°æ®
+	 * @param key  Keyå€¼
+	 * @param obj  å¯¹è±¡
 	 */
 	public void add(String key, Object obj) {
 		if (!StringUtils.hasText(key) || obj == null)
@@ -108,23 +108,23 @@ public class AjaxReturnInfo {
 	}
 
 	/**
-	 * ÉèÖÃºóÌ¨²úÉúµÄÒì³£
-	 * @param exp  Òì³£
+	 * è®¾ç½®åå°äº§ç”Ÿçš„å¼‚å¸¸
+	 * @param exp  å¼‚å¸¸
 	 */
 	public void setException(Exception exp) {
 		exception = exp;
 	}
 
 	/**
-	 * »ñÈ¡ºóÌ¨²úÉúµÄÒì³£
-	 * @return Òì³£¶ÔÏó
+	 * è·å–åå°äº§ç”Ÿçš„å¼‚å¸¸
+	 * @return å¼‚å¸¸å¯¹è±¡
 	 */
 	public Exception getException() {
 		return exception;
 	}
 	
 	/**
-	 * »ñÈ¡·µ»Øµ½Ç°Ì¨µÄJsonMap
+	 * è·å–è¿”å›åˆ°å‰å°çš„JsonMap
 	 */
 	public HashMap<String,Object> getReturnMap(){
 		HashMap<String,Object> map=new HashMap<String,Object>();
