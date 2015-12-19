@@ -4,29 +4,29 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 
 /**
- * ◊÷∑˚¥Æπ§æﬂ¿‡ update by seven
+ * Â≠óÁ¨¶‰∏≤Â∑•ÂÖ∑Á±ª update by seven
  */
 public class StringUtil {
 	/**
-	 * ∏¯“ª∏ˆ◊÷∑˚¥Æ“‘Ãÿ∂®◊÷∑˚≤π»´
+	 * Áªô‰∏Ä‰∏™Â≠óÁ¨¶‰∏≤‰ª•ÁâπÂÆöÂ≠óÁ¨¶Ë°•ÂÖ®
 	 * 
 	 * @author seven
 	 * @param str
-	 *            –Ë“™≤π»´µƒ◊÷∑˚¥Æ
+	 *            ÈúÄË¶ÅË°•ÂÖ®ÁöÑÂ≠óÁ¨¶‰∏≤
 	 * @param size
-	 *            –Ë“™µ√µΩµƒ◊Ó÷’≥§∂»
+	 *            ÈúÄË¶ÅÂæóÂà∞ÁöÑÊúÄÁªàÈïøÂ∫¶
 	 * @param c
-	 *            ÃÊ≤πµƒ◊÷∑˚
+	 *            ÊõøË°•ÁöÑÂ≠óÁ¨¶
 	 * @param before
-	 *             «∑Ò¥”Õ∑≤π∆Î
-	 * @return ∑µªÿ≤π∫√µƒ◊÷∑˚¥Æ
+	 *            ÊòØÂê¶‰ªéÂ§¥Ë°•ÈΩê
+	 * @return ËøîÂõûË°•Â•ΩÁöÑÂ≠óÁ¨¶‰∏≤
 	 */
 	public static String completeString(String str, int size, char c, boolean before) {
 		StringBuffer sb = new StringBuffer();
 		int length = str.length();
 		if (length >= size)
 			return str;
-		if (before) {// ¥”Õ∑≤π∆Î
+		if (before) {// ‰ªéÂ§¥Ë°•ÈΩê
 			for (int i = 0; i < size - length; i++) {
 				sb.append(c);
 			}
@@ -41,20 +41,20 @@ public class StringUtil {
 	}
 
 	/**
-	 * ∏¯“ª∏ˆ◊÷∑˚¥Æ“‘Ãÿ∂®◊÷∑˚trim()
+	 * Áªô‰∏Ä‰∏™Â≠óÁ¨¶‰∏≤‰ª•ÁâπÂÆöÂ≠óÁ¨¶trim()
 	 * 
 	 * @author seven
 	 * @param str
-	 *            –Ë“™¥¶¿Ìµƒ◊÷∑˚¥Æ
+	 *            ÈúÄË¶ÅÂ§ÑÁêÜÁöÑÂ≠óÁ¨¶‰∏≤
 	 * @param c
-	 *            trimµƒ◊÷∑˚
+	 *            trimÁöÑÂ≠óÁ¨¶
 	 * @param before
-	 *             «∑Ò¥”Õ∑trim return ∑µªÿ¥¶¿Ì∫Ûµƒ◊÷∑˚¥Æ
+	 *            ÊòØÂê¶‰ªéÂ§¥trim return ËøîÂõûÂ§ÑÁêÜÂêéÁöÑÂ≠óÁ¨¶‰∏≤
 	 */
 	public static String trimString(String str, char c, boolean before) {
 		int length = str.length();
 		int count = 0;
-		if (before) {// ¥”Õ∑trim
+		if (before) {// ‰ªéÂ§¥trim
 			for (int i = 0; i < length; i++) {
 				if (str.charAt(i) == c) {
 					count++;
@@ -84,10 +84,10 @@ public class StringUtil {
 	}
 
 	/**
-	 * ≈–∂œ“ª∏ˆ◊÷∑˚¥Æ «∑ÒŒ™ NULL ªÚŒ™ø’
+	 * Âà§Êñ≠‰∏Ä‰∏™Â≠óÁ¨¶‰∏≤ÊòØÂê¶‰∏∫ NULL Êàñ‰∏∫Á©∫
 	 * 
 	 * @param inStr
-	 * @return Œ™ø’ªÚnull∑µªÿtrue
+	 * @return ‰∏∫Á©∫ÊàñnullËøîÂõûtrue
 	 */
 	public static boolean isValid(String inStr) {
 		if (inStr == null) {
@@ -102,7 +102,7 @@ public class StringUtil {
 	}
 
 	/**
-	 * “‘String¿‡–Õ∑µªÿ¥ÌŒÛ≈◊≥ˆµƒ∂—’ª–≈œ¢
+	 * ‰ª•StringÁ±ªÂûãËøîÂõûÈîôËØØÊäõÂá∫ÁöÑÂ†ÜÊ†à‰ø°ÊÅØ
 	 * 
 	 * @param t
 	 *            Throwable
