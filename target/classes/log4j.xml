@@ -18,7 +18,7 @@
 
     <!-- Mybatis and SQL -->
     <logger name="org.apache.ibatis" additivity="true">
-        <level value="INFO"/>
+        <level value="info"/>
         <appender-ref ref="consoleAppender"/>
         <appender-ref ref="applog"/>
     </logger>
@@ -41,7 +41,7 @@
     </logger>
 
     <logger name="java.sql.Statement" additivity="true">
-        <level value="INFO"/>
+        <level value="debug"/>
         <appender-ref ref="consoleAppender"/>
         <appender-ref ref="applog"/>
     </logger>
@@ -54,7 +54,7 @@
 
     <!-- Spring -->
     <logger name="org.springframework" additivity="true">
-        <level value="ERROR"/>
+        <level value="info"/>
         <appender-ref ref="consoleAppender"/>
         <appender-ref ref="applog"/>
     </logger>

@@ -48,7 +48,7 @@
 	
 	<!-- 根据Name查询记录 -->
 	<select id="queryByName" resultMap="BaseResultMap" parameterType="String">
-		select <include refid="Base_Column_List" /> from `test` where `id` = #{id}
+		select <include refid="Base_Column_List" /> from `test` where `name` = #{name}
 	</select>
 
 </mapper>   

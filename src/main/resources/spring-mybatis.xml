@@ -20,7 +20,9 @@
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
 		<property name="driverClass" value="com.mysql.jdbc.Driver" />
 		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/xymz?useUnicode=true&amp;characterEncoding=UTF-8" />
-		<property name="properties" ref="dataSourceProperties"/>
+		<!--<property name="properties" ref="dataSourceProperties"/>-->
+        <property name="user" value="root"/>
+        <property name="password" value="root"/>
 		<property name="minPoolSize" value="5" />
 		<property name="maxPoolSize" value="50" />
 		<property name="initialPoolSize" value="5" />
@@ -29,14 +31,14 @@
 		<property name="idleConnectionTestPeriod" value="30" />
 	</bean>
 	
-	<bean id="dataSourceProperties" class="com.win.xymz.common.config.PropertiesEncryptFactoryBean">
-        <property name="properties">
-            <props>
-                <prop key="user">56DA1D7567E40A8C</prop>
-                <prop key="password">9AF04F24BA5D7FCA</prop>
-            </props>
-        </property>
-    </bean>	
+	<!--<bean id="dataSourceProperties" class="com.win.xymz.common.config.PropertiesEncryptFactoryBean">-->
+        <!--<property name="properties">-->
+            <!--<props>-->
+                <!--<prop key="user">821E658FC44585C3</prop>-->
+                <!--<prop key="password">821E658FC44585C3</prop>-->
+            <!--</props>-->
+        <!--</property>-->
+    <!--</bean>	-->
 	
 	<!-- Transaction -->
 	<bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">   
