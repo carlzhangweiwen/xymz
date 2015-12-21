@@ -1,7 +1,10 @@
-.classpath
-.project
-.settings
-/classes
-/test-classes
+*.class
+ 
+# Package Files #
+*.jar
+*.war
+*.ear
 /target
-/target/m2e-wtp/web-resources/META-INF/maven/com.win/xymz/pom.properties
+/.settings
+/.classpath
+/.project
