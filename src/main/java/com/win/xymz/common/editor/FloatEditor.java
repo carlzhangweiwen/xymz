@@ -1,4 +1,4 @@
-package com.win.xymz.editor;
+package com.win.xymz.common.editor;
 
 import org.springframework.beans.propertyeditors.PropertiesEditor;
 

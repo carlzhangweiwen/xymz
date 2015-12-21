@@ -151,7 +151,7 @@ public class SecurityHelper
 	}
 	 
 	public static void main(String[] args){//测试用例，不需要传递任何参数，直接执行即可。
-		String str = "root";//最多15位，DES加密后才不超过32位
+		String str = "123456";//最多15位，DES加密后才不超过32位
 		String enStr = DESEncrypt(str);
 		System.out.println("str : "+str);
 		System.out.println("加密 str：enStr=" + enStr + "  长度："+enStr.length());

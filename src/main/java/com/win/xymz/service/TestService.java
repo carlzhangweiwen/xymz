@@ -1,7 +1,8 @@
 package com.win.xymz.service;
 
 import java.util.List;
-import com.win.xymz.vo.Test;
+
+import com.win.xymz.bean.Test;
 
 public interface TestService {
 	public Test queryByName(String name) throws Exception;

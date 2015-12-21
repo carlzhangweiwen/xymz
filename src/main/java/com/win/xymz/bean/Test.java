@@ -1,4 +1,4 @@
-package com.win.xymz.vo;
+package com.win.xymz.bean;
 
 public class Test {
 	private String id;

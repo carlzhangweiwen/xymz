@@ -9,9 +9,9 @@ import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 
-import com.win.xymz.editor.DoubleEditor;
-import com.win.xymz.editor.FloatEditor;
-import com.win.xymz.editor.IntEditor;
+import com.win.xymz.common.editor.DoubleEditor;
+import com.win.xymz.common.editor.FloatEditor;
+import com.win.xymz.common.editor.IntEditor;
 
 public class BaseController {
 	protected static final Logger logger = LoggerFactory.getLogger("");

@@ -12,83 +12,58 @@
 	<context:annotation-config />
 	<mvc:annotation-driven />
 
+	<!-- 静态文件 -->
 	<mvc:resources mapping="/resources/**" location="/resources/" />
+
+	<!-- 多视图配置    以.json结尾的请求默认返回json对象 -->
+	<bean id="cnManager" class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">
+        <property name="ignoreAcceptHeader" value="true"/>
+        <property name="favorPathExtension" value="true"/>
+        <property name="defaultContentType" value="text/html"/>
+        <property name="favorParameter" value="true"/>
+        <property name="mediaTypes">
+            <map>
+                <entry key="xml" value="application/xml"/>
+                <entry key="json" value="text/plain"/>
+                <entry key="xls" value="application/vnd.ms-excel"/>
+            </map>
+        </property>
+    </bean>
+    
+    <bean id="viewResolver"
+          class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+        <property name="contentNegotiationManager" ref="cnManager"/>
+        <property name="viewResolvers"><!-- 针对freemarker的视图配置 --> 
+            <list>
+                <bean class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
+                    <property name="viewClass" value="org.springframework.web.servlet.view.freemarker.FreeMarkerView"/>
+                    <property name="viewNames" value=".ftl"/>
+                    <property name="contentType" value="text/html; charset=utf-8"/>
+                    <property name="cache" value="true" />
+                    <property name="prefix" value="" />
+                    <property name="suffix" value="" />
+                    <property name="order" value="2"/>
+                </bean>
+                <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+                    <property name="prefix" value="/WEB-INF/views/"></property><!-- 配置页面路径 -->
+                    <property name="suffix" value=".jsp"></property><!-- 文件以value值结尾 -->
+                </bean>
+            </list>
+        </property>
+        <property name="defaultViews">
+            <list>
+                <bean class="org.springframework.web.servlet.view.json.MappingJackson2JsonView">
+                    <!-- <property name="extractValueFromSingleKeyModel" value="true"/> -->
+                    <property name="prettyPrint" value="true"/>
+                    <property name="contentType" value="text/plain"/>
+                </bean>
+            </list>
+        </property>
+    </bean>
 	
-	<bean id="velocityConfig"
-		class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">
-		<property name="resourceLoaderPath" value="" />
-		<property name="configLocation">
-			<value>classpath:velocity.properties</value>
-		</property>
-	</bean>
-	
-	<bean id="velocityviewResolver"
-		class="org.springframework.web.servlet.view.velocity.VelocityViewResolver">
-		<property name="cache" value="true" />
-		<property name="exposePathVariables" value="false" />
-		<property name="prefix" value="WEB-INF/templates/" />
-		<property name="suffix" value=".vm" />
-		<property name="contentType" value="text/html;charset=UTF-8" />
-		<property name="viewClass">
-			<value>
-				org.springframework.web.servlet.view.velocity.VelocityView
-			</value>
-		</property>
-	</bean>
-
-
-	<bean
-		class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
-		<property name="contentNegotiationManager" ref="contentNegotiationManager" />
-		<property name="viewResolvers">
-			<!-- 关闭所有的解析器，防止它在查找候选视图时多个解析器都运行 -->
-			<list>
-				<ref bean="velocityviewResolver" />
-			</list>
-		</property>
-		<property name="defaultViews">
-			<list>
-				<bean
-					class="org.springframework.web.servlet.view.json.MappingJackson2JsonView">
-					<property name="objectMapper">
-						<bean class="com.fasterxml.jackson.databind.ObjectMapper">
-							<property name="serializationInclusion">
-								<value>NON_NULL</value>
-							</property>
-						</bean>
-					</property>
-					<property name="extractValueFromSingleKeyModel" value="true" />
-					<property name="prettyPrint" value="false" />
-					<property name="contentType" value="application/json" />
-					<property name="encoding" value="UTF8" />
-				</bean>
-			</list>
-		</property>
-	</bean>
-
-
-
-	<bean id="contentNegotiationManager"
-		class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">
-		<property name="ignoreAcceptHeader" value="true" />
-		<property name="favorPathExtension" value="true" />
-		<property name="defaultContentType" value="application/json" />
-		<property name="favorParameter" value="true" />
-		<property name="mediaTypes">
-			<map>
-				<entry key="json" value="application/json" />
-				<entry key="html" value="text/html" />
-				<entry key="do" value="text/html" />
-			</map>
-		</property>
-	</bean>
 
 	<!-- Content-Type类型为text/plain的转换器 -->
 	<bean id="stringHttpMessageConverter"
 		class="org.springframework.http.converter.StringHttpMessageConverter" />
 
-	<!-- 启动SpringMVC的注解功能，完成请求和注解POJO的映射 -->
-	<!-- <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter"> 
-		<property name="messageConverters"> <list> <ref bean="stringHttpMessageConverter"/> 
-		<ref bean="mappingJacksonHttpMessageConverter" /> </list> </property> </bean> -->
 </beans>

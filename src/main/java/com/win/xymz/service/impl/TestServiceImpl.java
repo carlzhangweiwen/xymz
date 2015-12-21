@@ -1,11 +1,13 @@
 package com.win.xymz.service.impl;
 
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.win.xymz.mapperInterface.TestMapper;
+
+import com.win.xymz.bean.Test;
+import com.win.xymz.dao.TestMapper;
 import com.win.xymz.service.TestService;
-import com.win.xymz.vo.Test;
 
 @Service("testService")
 public class TestServiceImpl extends BaseService implements TestService {

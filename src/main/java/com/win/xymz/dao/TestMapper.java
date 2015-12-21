@@ -1,8 +1,8 @@
-package com.win.xymz.mapperInterface;
+package com.win.xymz.dao;
 
 import java.util.List;
 
-import com.win.xymz.vo.Test;
+import com.win.xymz.bean.Test;
 
 public interface TestMapper {
 	public Test queryByName(String name) throws Exception;
