@@ -9,23 +9,21 @@ import java.util.Random;
 import javax.imageio.ImageIO;
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 /** 
  * @author 作者 Carl Zhang. E-mail: carlzhangweiwen@sina.com
  * @version 创建时间：2015年12月23日 下午9:53:08 
  * 类说明 
  */
-public class ValidateCodeServlet extends HttpServlet {  
-	  
-    /** 
-     * 序列化版本UID编号 
-     */  
-    private static final long serialVersionUID = -7080388860058814634L;  
-  
+@Controller
+public class AuthCodeController{  
     /** 验证码图片的宽度 */  
     private int width = 60;  
     /** 验证码图片的高度 */  
@@ -45,42 +43,16 @@ public class ValidateCodeServlet extends HttpServlet {
     /** 
      * 初始化验证图片属性 
      */  
-    public void init() throws ServletException {  
-        // 从web.xml中获取初始信息  
-        // 宽度  
-        String strWidth = this.getInitParameter("width");  
-        System.out.println("--------验证码宽度："+strWidth);  
-        // 高度  
-        String strHeight = this.getInitParameter("height");  
-        System.out.println("--------验证码宽度："+strHeight);  
-        // 字符个数  
-        String strCodeCount = this.getInitParameter("codeCount");  
-        System.out.println("--------验证码宽度："+strCodeCount);  
-  
-        // 将配置的信息转换成数值  
-        try {  
-            if (strWidth != null && strWidth.length() != 0) {  
-                width = Integer.parseInt(strWidth);  
-            }  
-            if (strHeight != null && strHeight.length() != 0) {  
-                height = Integer.parseInt(strHeight);  
-            }  
-            if (strCodeCount != null && strCodeCount.length() != 0) {  
-                codeCount = Integer.parseInt(strCodeCount);  
-            }  
-        } catch (NumberFormatException e) {  
-            e.printStackTrace();  
-        }  
-  
+    private void init() throws ServletException {  
         x = width / (codeCount + 1);  
         fontHeight = height - 2;  
         codeY = height - 4;  
-  
     }  
-  
-    protected void service(HttpServletRequest req, HttpServletResponse resp)  
-            throws ServletException, java.io.IOException {  
-  
+    
+    @RequestMapping(value="getImg", method=RequestMethod.GET)
+    public void service(HttpServletRequest req, HttpServletResponse resp)  
+            throws ServletException, java.io.IOException {
+    	this.init();
         // 定义图像buffer  
         BufferedImage buffImg = new BufferedImage(width, height,  
                 BufferedImage.TYPE_INT_RGB);  
