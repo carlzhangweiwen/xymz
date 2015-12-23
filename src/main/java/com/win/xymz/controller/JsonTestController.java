@@ -2,7 +2,7 @@
  * BokeMecn
  * Copyright (c) 2014-2015 All Rights Reserved.
  */
-package com.win.xymz.web.controller;
+package com.win.xymz.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

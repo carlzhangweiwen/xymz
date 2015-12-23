@@ -1,4 +1,4 @@
-package com.win.xymz.web.controller;
+package com.win.xymz.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
