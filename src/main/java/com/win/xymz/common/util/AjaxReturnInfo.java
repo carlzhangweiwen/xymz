@@ -10,82 +10,24 @@ import org.springframework.util.StringUtils;
  */
 public class AjaxReturnInfo {
 	
-	private boolean success=true;	// true or false，默认为true
-	private String message;			// 返回信息
-	private Exception exception;
+	private String errorCode = "1";	// 默认为1
+	private String message = "ok";			// 返回信息, 默认为ok
 	private Map<String, Object> datas = new HashMap<String, Object>(); // 返回的数据
-
-	/**
-	 * 取得成功状态的返回对象
-	 * @return success
-	 * @param message
-	 */
-	public static AjaxReturnInfo success(String message) {
-	    AjaxReturnInfo ret =  new AjaxReturnInfo(true);
-	    ret.message = StringUtils.hasText(message) ? message : "success";
-	    return ret;
+	
+	public String getErrorCode() {
+		return errorCode;
 	}
 
-	/**
-	 * 取得失败状态的返回对象
-	 * 
-	 * @return failed对象
-	 * @param message
-	 */
-	public static AjaxReturnInfo failed(String message) {
-		AjaxReturnInfo ret = new AjaxReturnInfo(false);
-		ret.message = StringUtils.hasText(message) ? message : "failed";
-		return ret;
+	public void setErrorCode(String errorCode) {
+		this.errorCode = errorCode;
 	}
 
-	/**
-	 * 私有的构造函数
-	 * @param result
-	 *            'true' or 'false'
-	 */
-	private AjaxReturnInfo(boolean result) {
-		this.success = result;
-	}
-	
-	/**
-	 * 构造函数
-	 * success默认是成功的
-	 */
-	public AjaxReturnInfo(){
-	}
-	
-	/**
-	 * 取得成功标志
-	 * 
-	 * @return 'true' or 'false'
-	 */
-	public boolean getSuccess() {
-		return success;
-	}
-	
-	/**
-	 * 设置成功标志
-	 * 
-	 * @param result 'true' or 'false'
-	 */
-	public void setSuccess(boolean result) {
-		this.success=result;
-	}
-	
-	/**
-	 * 获得返回信息
-	 * @return 返回信息
-	 */
 	public String getMessage() {
 		return message;
 	}
-	
-	/**
-	 * 设置返回信息
-	 * @return 返回信息
-	 */
-	public void setMessage(String mess) {
-		this.message=mess;
+
+	public void setMessage(String message) {
+		this.message = message;
 	}
 
 	/**
@@ -106,32 +48,15 @@ public class AjaxReturnInfo {
 			return;
 		this.datas.put(key, obj);
 	}
-
-	/**
-	 * 设置后台产生的异常
-	 * @param exp  异常
-	 */
-	public void setException(Exception exp) {
-		exception = exp;
-	}
-
-	/**
-	 * 获取后台产生的异常
-	 * @return 异常对象
-	 */
-	public Exception getException() {
-		return exception;
-	}
 	
 	/**
 	 * 获取返回到前台的JsonMap
 	 */
 	public HashMap<String,Object> getReturnMap(){
 		HashMap<String,Object> map=new HashMap<String,Object>();
-		map.put("success", success?"true":"false");
-		map.put("message", message);
-		map.put("exception", StringUtil.getStackTrace(exception));
-		map.put("datas",datas);
+		map.put("errcode", errorCode);
+		map.put("errmsg", message);
+		map.put("results",datas);
 		return map;
 	}
 }

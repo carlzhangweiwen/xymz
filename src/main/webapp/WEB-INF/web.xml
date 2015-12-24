@@ -64,7 +64,7 @@
 		<servlet-name>SpringMVC</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
-	<servlet>  
+	<!-- <servlet>  
 	 <servlet-name>ValidateCodeServlet</servlet-name>
 		<servlet-class>com.win.xymz.web.servlet.ValidateCodeServlet</servlet-class>
 		<init-param>
@@ -84,7 +84,7 @@
 	<servlet-mapping>  
 	 <servlet-name>ValidateCodeServlet</servlet-name>  
 	 <url-pattern>/validatecode.jpg</url-pattern>  
-	</servlet-mapping>  
+	</servlet-mapping> -->  
 	<!-- 
 	<welcome-file-list>  
         <welcome-file>/index.jsp</welcome-file>  
