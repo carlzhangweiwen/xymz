@@ -64,27 +64,6 @@
 		<servlet-name>SpringMVC</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
-	<!-- <servlet>  
-	 <servlet-name>ValidateCodeServlet</servlet-name>
-		<servlet-class>com.win.xymz.web.servlet.ValidateCodeServlet</servlet-class>
-		<init-param>
-			<param-name>width</param-name>
-			<param-value>60</param-value>
-		</init-param>
-		<init-param>
-			<param-name>height</param-name>
-			<param-value>20</param-value>
-		</init-param>
-		<init-param>
-			<param-name>codeCount</param-name>
-			<param-value>4</param-value>
-		</init-param>  
-	</servlet>  
-	  
-	<servlet-mapping>  
-	 <servlet-name>ValidateCodeServlet</servlet-name>  
-	 <url-pattern>/validatecode.jpg</url-pattern>  
-	</servlet-mapping> -->  
 	<!-- 
 	<welcome-file-list>  
         <welcome-file>/index.jsp</welcome-file>  

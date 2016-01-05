@@ -175,6 +175,12 @@
 			<version>4.7</version>
 			<scope>test</scope>
 		</dependency>
+		 <!-- 为了方便进行单元测试，添加spring-test包 -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>${org.springframework-version}</version>
+        </dependency>
 	</dependencies>
     <build>
         <plugins>
