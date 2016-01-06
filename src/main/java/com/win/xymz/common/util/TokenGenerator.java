@@ -23,8 +23,6 @@ import org.apache.commons.codec.binary.Base64;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.win.xymz.exception.ControllerException;
-
 /** 
  * @author 作者 Carl Zhang. E-mail: carlzhangweiwen@sina.com
  * @version 创建时间：2015年12月24日 下午11:47:31 
@@ -78,9 +76,8 @@ public class TokenGenerator {
      * @throws BadPaddingException 
      * @throws IllegalBlockSizeException 
      * @throws ParseException 
-     * @throws ControllerException 
      */
-    public static AjaxReturnInfo authToken(String token, String appid) throws InvalidKeyException, NoSuchAlgorithmException, InvalidKeySpecException, NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException, ParseException, ControllerException{
+    public static AjaxReturnInfo authToken(String token, String appid) throws InvalidKeyException, NoSuchAlgorithmException, InvalidKeySpecException, NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException, ParseException{
     	DESedeKeySpec keySpec = new DESedeKeySpec(SECRET.getBytes());
 		
 		SecretKeyFactory keyFactory = SecretKeyFactory.getInstance("DESede");
