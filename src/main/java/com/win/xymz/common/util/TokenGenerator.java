@@ -116,7 +116,7 @@ public class TokenGenerator {
 			returnInfo.setErrorCode("112");
 			returnInfo.setMessage("很抱歉，验证失败");
 		}
-		
+		//严格意义上，要和数据库或者缓存里存储的token进行比对
 		System.out.println(now.getTime()-date.getTime());
 		return returnInfo;
     }
