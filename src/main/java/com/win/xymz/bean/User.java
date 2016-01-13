@@ -2,7 +2,7 @@ package com.win.xymz.bean;
 /** 
  * @author 作者 Carl Zhang. E-mail: carlzhangweiwen@sina.com
  * @version 创建时间：2015年12月23日 下午8:35:33 
- * 类说明 
+ * 类说明 User
  */
 public class User {
 	private int id;//主键id 
