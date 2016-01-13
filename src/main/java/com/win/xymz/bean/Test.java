@@ -1,5 +1,9 @@
 package com.win.xymz.bean;
-
+/**
+ * Test Bean
+ * @author 11397
+ *
+ */
 public class Test {
 	private String id;
 	private String name;
