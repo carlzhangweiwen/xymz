@@ -2,7 +2,7 @@ package com.win.xymz.bean;
 /**
  * Test Bean
  * @author 11397
- *
+ *test carl
  */
 public class Test {
 	private String id;
