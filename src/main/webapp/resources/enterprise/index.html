@@ -139,7 +139,7 @@ return false;
 window.onload=function() {
 	$('#entrance>div').tap(function(){
 		var i = $(this).index();
-		location.href={"0":"./myApply.html","1":"./newApply.html"}[i] || "./myApply.html";
+		location.href={"0":"myApply.html","1":"newApply.html","2":"companyAuth.html","3":"settings.html"}[i];
 	});
 }
 
