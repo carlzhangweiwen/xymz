@@ -6,6 +6,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.win.xymz.dao.TestMapper;
+import com.win.xymz.service.TestService;
 
 public class UserTest {
 
