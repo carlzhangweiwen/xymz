@@ -1,88 +1,135 @@
 package com.win.xymz.bean;
-/** 
- * @author 作者 Carl Zhang. E-mail: carlzhangweiwen@sina.com
- * @version 创建时间：2015年12月23日 下午8:35:33 
- * 类说明 User
- */
-public class User {
-	private int id;//主键id 
-	private String username;//用户名
-	private String password;//密码
-	private String mobilephone;//手机号
-	private String realname	;//'用户真实姓名'
-	private int gender;	//'用户性别0:女,1:男'
-	private String birthday;	//'出生年月1989-12-19'
-	private String email;	//'邮箱地址'
-	private String photourl;	//'头像'
-	private int resumeId;	//'简历'
-	private String registerip;	//'注册时ip地址'
-	
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
-	public String getUsername() {
-		return username;
-	}
-	public void setUsername(String username) {
-		this.username = username;
-	}
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
-	}
-	public String getMobilephone() {
-		return mobilephone;
-	}
-	public void setMobilephone(String mobilephone) {
-		this.mobilephone = mobilephone;
-	}
-	public String getRealname() {
-		return realname;
-	}
-	public void setRealname(String realname) {
-		this.realname = realname;
-	}
-	public int getGender() {
-		return gender;
-	}
-	public void setGender(int gender) {
-		this.gender = gender;
-	}
-	public String getBirthday() {
-		return birthday;
-	}
-	public void setBirthday(String birthday) {
-		this.birthday = birthday;
-	}
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	public String getPhotourl() {
-		return photourl;
-	}
-	public void setPhotourl(String photourl) {
-		this.photourl = photourl;
-	}
-	public int getResumeId() {
-		return resumeId;
-	}
-	public void setResumeId(int resumeId) {
-		this.resumeId = resumeId;
-	}
-	public String getRegisterip() {
-		return registerip;
-	}
-	public void setRegisterip(String registerip) {
-		this.registerip = registerip;
-	}
-	
-}
 
+import java.util.Date;
+
+public class User {
+    private Integer id;
+
+    private String mobilephone;
+
+    private String cpassword;
+
+    private String username;
+
+    private String realname;
+
+    private Integer gender;
+
+    private String birthday;
+
+    private String email;
+
+    private String photourl;
+
+    private Integer resumeid;
+
+    private String regip;
+
+    private Date createTime;
+
+    private Date updateTime;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getMobilephone() {
+        return mobilephone;
+    }
+
+    public void setMobilephone(String mobilephone) {
+        this.mobilephone = mobilephone;
+    }
+
+    public String getCpassword() {
+        return cpassword;
+    }
+
+    public void setCpassword(String cpassword) {
+        this.cpassword = cpassword;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getRealname() {
+        return realname;
+    }
+
+    public void setRealname(String realname) {
+        this.realname = realname;
+    }
+
+    public Integer getGender() {
+        return gender;
+    }
+
+    public void setGender(Integer gender) {
+        this.gender = gender;
+    }
+
+    public String getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(String birthday) {
+        this.birthday = birthday;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPhotourl() {
+        return photourl;
+    }
+
+    public void setPhotourl(String photourl) {
+        this.photourl = photourl;
+    }
+
+    public Integer getResumeid() {
+        return resumeid;
+    }
+
+    public void setResumeid(Integer resumeid) {
+        this.resumeid = resumeid;
+    }
+
+    public String getRegip() {
+        return regip;
+    }
+
+    public void setRegip(String regip) {
+        this.regip = regip;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public Date getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
+    }
+}

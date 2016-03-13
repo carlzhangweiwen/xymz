@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Controller;
 
-import com.win.xymz.bean.JobBean;
+import com.win.xymz.bean.Job;
 
 /** 
  * @author 作者 Carl Zhang. E-mail: carlzhangweiwen@sina.com
@@ -18,7 +18,7 @@ public class EnterpriseController {
 	 * 发布兼职
 	 * @param job
 	 */
-	public void releaseJobs(JobBean job){
+	public void releaseJobs(Job job){
 		
 	}
 	
@@ -26,7 +26,7 @@ public class EnterpriseController {
 	 * 我发布的兼职
 	 * @return
 	 */
-	public List<JobBean> releaseedJobs(){
+	public List<Job> releaseedJobs(){
 		return null;
 	}
 	
