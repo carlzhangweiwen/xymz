@@ -119,11 +119,6 @@
 			<version>1.2</version>
 		</dependency>
 		
-		<dependency>
-		    <groupId>org.apache.maven.plugins</groupId>
-		    <artifactId>maven-resources-plugin</artifactId>
-		    <version>2.5</version>
-		</dependency>
 		
 		<!-- mybatis -->
 		<dependency>  
@@ -179,6 +174,12 @@
 			<groupId>dom4j</groupId>
 			<artifactId>dom4j</artifactId>
 			<version>1.6.1</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>xml-apis</artifactId>
+					<groupId>xml-apis</groupId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 		<!-- httpclient -->
 		<dependency>
@@ -206,7 +207,7 @@
             <version>${org.springframework-version}</version>
         </dependency>
 	</dependencies>
-    <build>
+    <!-- <build>
         <plugins>
             <plugin>
                 <artifactId>maven-eclipse-plugin</artifactId>
@@ -243,5 +244,5 @@
                 </configuration>
             </plugin>
         </plugins>
-    </build>
+    </build> -->
 </project>

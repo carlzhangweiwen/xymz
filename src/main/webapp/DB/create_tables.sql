@@ -1,3 +1,5 @@
+
+--create tables
 DROP TABLE IF EXISTS `tb_user`;
 create table tb_user(
 id	int(8) not null auto_increment comment '用户表id' ,
@@ -57,8 +59,10 @@ jobtitle varchar(100) comment '工作标题',
 jobcontent varchar(2000) comment '工作内容',
 salary_amount int(8) comment '工作薪水金额',
 salary_unit_id int(8) comment '薪水单位id',
-work_begin_time varchar(18) comment '工作开始时间',
-work_end_time varchar(18) comment '工作结束时间',
+work_begin_date date comment '工作开始日期(2016-1-4)',
+work_end_date date comment '工作结束日期(2016-2-4)',
+work_begin_time varchar(18) comment '工作开始时间(8:00)',
+work_end_time varchar(18) comment '工作结束时间(16:00)',
 jobloction varchar(100) comment '工作地址',
 longitude varchar(40) comment '经度',
 latitude varchar(40) comment '纬度',
@@ -98,6 +102,13 @@ audit_comment varchar(100) comment '审核备注',
 primary key(id)
 )
 ;
+
+--add comment on tables
+alter table tb_user comment '用户表';
+alter table tb_company comment '公司表';
+alter table tb_job comment '职位表';
+alter table tb_options comment '用于存放页面可变的标签，如select标签的内容';
+alter table tb_resume comment '简历表';
 
 
 
