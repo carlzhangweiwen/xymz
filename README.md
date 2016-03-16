@@ -10,8 +10,7 @@
 
 
 
----------
-环境搭建：<br/>
+##环境搭建：
 1. 安装mysql数据库;
 2. 先运行src\main\webapp\DB\DBInitial.txt中的sql语句，创建用户和测试表;
 3. 运行src\main\webapp\DB\create_tables.sql创建需要的表.
