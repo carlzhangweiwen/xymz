@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.win.xymz.dao.JobMapper" >
+  <resultMap id="BaseResultMap" type="com.win.xymz.bean.Job" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="companyid" property="companyid" jdbcType="INTEGER" />
+    <result column="jobtypeid" property="jobtypeid" jdbcType="VARCHAR" />
+    <result column="jobtitle" property="jobtitle" jdbcType="VARCHAR" />
+    <result column="jobcontent" property="jobcontent" jdbcType="VARCHAR" />
+    <result column="salary_amount" property="salaryAmount" jdbcType="INTEGER" />
+    <result column="salary_unit_id" property="salaryUnitId" jdbcType="INTEGER" />
+    <result column="work_begin_date" property="workBeginDate" jdbcType="DATE" />
+    <result column="work_end_date" property="workEndDate" jdbcType="DATE" />
+    <result column="work_begin_time" property="workBeginTime" jdbcType="VARCHAR" />
+    <result column="work_end_time" property="workEndTime" jdbcType="VARCHAR" />
+    <result column="jobloction" property="jobloction" jdbcType="VARCHAR" />
+    <result column="longitude" property="longitude" jdbcType="VARCHAR" />
+    <result column="latitude" property="latitude" jdbcType="VARCHAR" />
+    <result column="recruitment_num" property="recruitmentNum" jdbcType="INTEGER" />
+    <result column="contacts_email" property="contactsEmail" jdbcType="VARCHAR" />
+    <result column="contacts_person" property="contactsPerson" jdbcType="VARCHAR" />
+    <result column="contacts_tel" property="contactsTel" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="audit_state" property="auditState" jdbcType="INTEGER" />
+    <result column="audit_person" property="auditPerson" jdbcType="VARCHAR" />
+    <result column="audit_time" property="auditTime" jdbcType="TIMESTAMP" />
+    <result column="audit_comment" property="auditComment" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, companyid, jobtypeid, jobtitle, jobcontent, salary_amount, salary_unit_id, work_begin_date, 
+    work_end_date, work_begin_time, work_end_time, jobloction, longitude, latitude, recruitment_num, 
+    contacts_email, contacts_person, contacts_tel, create_time, update_time, audit_state, 
+    audit_person, audit_time, audit_comment
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tb_job
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tb_job
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.win.xymz.bean.Job" >
+    insert into tb_job (id, companyid, jobtypeid, 
+      jobtitle, jobcontent, salary_amount, 
+      salary_unit_id, work_begin_date, work_end_date, 
+      work_begin_time, work_end_time, jobloction, 
+      longitude, latitude, recruitment_num, 
+      contacts_email, contacts_person, contacts_tel, 
+      create_time, update_time, audit_state, 
+      audit_person, audit_time, audit_comment
+      )
+    values (#{id,jdbcType=INTEGER}, #{companyid,jdbcType=INTEGER}, #{jobtypeid,jdbcType=VARCHAR}, 
+      #{jobtitle,jdbcType=VARCHAR}, #{jobcontent,jdbcType=VARCHAR}, #{salaryAmount,jdbcType=INTEGER}, 
+      #{salaryUnitId,jdbcType=INTEGER}, #{workBeginDate,jdbcType=DATE}, #{workEndDate,jdbcType=DATE}, 
+      #{workBeginTime,jdbcType=VARCHAR}, #{workEndTime,jdbcType=VARCHAR}, #{jobloction,jdbcType=VARCHAR}, 
+      #{longitude,jdbcType=VARCHAR}, #{latitude,jdbcType=VARCHAR}, #{recruitmentNum,jdbcType=INTEGER}, 
+      #{contactsEmail,jdbcType=VARCHAR}, #{contactsPerson,jdbcType=VARCHAR}, #{contactsTel,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{auditState,jdbcType=INTEGER}, 
+      #{auditPerson,jdbcType=VARCHAR}, #{auditTime,jdbcType=TIMESTAMP}, #{auditComment,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.win.xymz.bean.Job" >
+    insert into tb_job
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="companyid != null" >
+        companyid,
+      </if>
+      <if test="jobtypeid != null" >
+        jobtypeid,
+      </if>
+      <if test="jobtitle != null" >
+        jobtitle,
+      </if>
+      <if test="jobcontent != null" >
+        jobcontent,
+      </if>
+      <if test="salaryAmount != null" >
+        salary_amount,
+      </if>
+      <if test="salaryUnitId != null" >
+        salary_unit_id,
+      </if>
+      <if test="workBeginDate != null" >
+        work_begin_date,
+      </if>
+      <if test="workEndDate != null" >
+        work_end_date,
+      </if>
+      <if test="workBeginTime != null" >
+        work_begin_time,
+      </if>
+      <if test="workEndTime != null" >
+        work_end_time,
+      </if>
+      <if test="jobloction != null" >
+        jobloction,
+      </if>
+      <if test="longitude != null" >
+        longitude,
+      </if>
+      <if test="latitude != null" >
+        latitude,
+      </if>
+      <if test="recruitmentNum != null" >
+        recruitment_num,
+      </if>
+      <if test="contactsEmail != null" >
+        contacts_email,
+      </if>
+      <if test="contactsPerson != null" >
+        contacts_person,
+      </if>
+      <if test="contactsTel != null" >
+        contacts_tel,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="auditState != null" >
+        audit_state,
+      </if>
+      <if test="auditPerson != null" >
+        audit_person,
+      </if>
+      <if test="auditTime != null" >
+        audit_time,
+      </if>
+      <if test="auditComment != null" >
+        audit_comment,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="companyid != null" >
+        #{companyid,jdbcType=INTEGER},
+      </if>
+      <if test="jobtypeid != null" >
+        #{jobtypeid,jdbcType=VARCHAR},
+      </if>
+      <if test="jobtitle != null" >
+        #{jobtitle,jdbcType=VARCHAR},
+      </if>
+      <if test="jobcontent != null" >
+        #{jobcontent,jdbcType=VARCHAR},
+      </if>
+      <if test="salaryAmount != null" >
+        #{salaryAmount,jdbcType=INTEGER},
+      </if>
+      <if test="salaryUnitId != null" >
+        #{salaryUnitId,jdbcType=INTEGER},
+      </if>
+      <if test="workBeginDate != null" >
+        #{workBeginDate,jdbcType=DATE},
+      </if>
+      <if test="workEndDate != null" >
+        #{workEndDate,jdbcType=DATE},
+      </if>
+      <if test="workBeginTime != null" >
+        #{workBeginTime,jdbcType=VARCHAR},
+      </if>
+      <if test="workEndTime != null" >
+        #{workEndTime,jdbcType=VARCHAR},
+      </if>
+      <if test="jobloction != null" >
+        #{jobloction,jdbcType=VARCHAR},
+      </if>
+      <if test="longitude != null" >
+        #{longitude,jdbcType=VARCHAR},
+      </if>
+      <if test="latitude != null" >
+        #{latitude,jdbcType=VARCHAR},
+      </if>
+      <if test="recruitmentNum != null" >
+        #{recruitmentNum,jdbcType=INTEGER},
+      </if>
+      <if test="contactsEmail != null" >
+        #{contactsEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="contactsPerson != null" >
+        #{contactsPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="contactsTel != null" >
+        #{contactsTel,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="auditState != null" >
+        #{auditState,jdbcType=INTEGER},
+      </if>
+      <if test="auditPerson != null" >
+        #{auditPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="auditTime != null" >
+        #{auditTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="auditComment != null" >
+        #{auditComment,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.win.xymz.bean.Job" >
+    update tb_job
+    <set >
+      <if test="companyid != null" >
+        companyid = #{companyid,jdbcType=INTEGER},
+      </if>
+      <if test="jobtypeid != null" >
+        jobtypeid = #{jobtypeid,jdbcType=VARCHAR},
+      </if>
+      <if test="jobtitle != null" >
+        jobtitle = #{jobtitle,jdbcType=VARCHAR},
+      </if>
+      <if test="jobcontent != null" >
+        jobcontent = #{jobcontent,jdbcType=VARCHAR},
+      </if>
+      <if test="salaryAmount != null" >
+        salary_amount = #{salaryAmount,jdbcType=INTEGER},
+      </if>
+      <if test="salaryUnitId != null" >
+        salary_unit_id = #{salaryUnitId,jdbcType=INTEGER},
+      </if>
+      <if test="workBeginDate != null" >
+        work_begin_date = #{workBeginDate,jdbcType=DATE},
+      </if>
+      <if test="workEndDate != null" >
+        work_end_date = #{workEndDate,jdbcType=DATE},
+      </if>
+      <if test="workBeginTime != null" >
+        work_begin_time = #{workBeginTime,jdbcType=VARCHAR},
+      </if>
+      <if test="workEndTime != null" >
+        work_end_time = #{workEndTime,jdbcType=VARCHAR},
+      </if>
+      <if test="jobloction != null" >
+        jobloction = #{jobloction,jdbcType=VARCHAR},
+      </if>
+      <if test="longitude != null" >
+        longitude = #{longitude,jdbcType=VARCHAR},
+      </if>
+      <if test="latitude != null" >
+        latitude = #{latitude,jdbcType=VARCHAR},
+      </if>
+      <if test="recruitmentNum != null" >
+        recruitment_num = #{recruitmentNum,jdbcType=INTEGER},
+      </if>
+      <if test="contactsEmail != null" >
+        contacts_email = #{contactsEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="contactsPerson != null" >
+        contacts_person = #{contactsPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="contactsTel != null" >
+        contacts_tel = #{contactsTel,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="auditState != null" >
+        audit_state = #{auditState,jdbcType=INTEGER},
+      </if>
+      <if test="auditPerson != null" >
+        audit_person = #{auditPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="auditTime != null" >
+        audit_time = #{auditTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="auditComment != null" >
+        audit_comment = #{auditComment,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.win.xymz.bean.Job" >
+    update tb_job
+    set companyid = #{companyid,jdbcType=INTEGER},
+      jobtypeid = #{jobtypeid,jdbcType=VARCHAR},
+      jobtitle = #{jobtitle,jdbcType=VARCHAR},
+      jobcontent = #{jobcontent,jdbcType=VARCHAR},
+      salary_amount = #{salaryAmount,jdbcType=INTEGER},
+      salary_unit_id = #{salaryUnitId,jdbcType=INTEGER},
+      work_begin_date = #{workBeginDate,jdbcType=DATE},
+      work_end_date = #{workEndDate,jdbcType=DATE},
+      work_begin_time = #{workBeginTime,jdbcType=VARCHAR},
+      work_end_time = #{workEndTime,jdbcType=VARCHAR},
+      jobloction = #{jobloction,jdbcType=VARCHAR},
+      longitude = #{longitude,jdbcType=VARCHAR},
+      latitude = #{latitude,jdbcType=VARCHAR},
+      recruitment_num = #{recruitmentNum,jdbcType=INTEGER},
+      contacts_email = #{contactsEmail,jdbcType=VARCHAR},
+      contacts_person = #{contactsPerson,jdbcType=VARCHAR},
+      contacts_tel = #{contactsTel,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      audit_state = #{auditState,jdbcType=INTEGER},
+      audit_person = #{auditPerson,jdbcType=VARCHAR},
+      audit_time = #{auditTime,jdbcType=TIMESTAMP},
+      audit_comment = #{auditComment,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
