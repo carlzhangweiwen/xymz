@@ -10,11 +10,12 @@
 	<appender name="applog" class="org.apache.log4j.DailyRollingFileAppender">  
         <param name="Append" value="true"></param>  
         <param name="DatePattern" value="'_'yyyyMMdd'.log'"></param>  
-        <param name="File" value="/logs/xymz"></param>  
+        <param name="File" value="/logs/xymz.log"></param>  
         <layout class="org.apache.log4j.PatternLayout">  
             <param name="ConversionPattern" value="[%d{yyyy-MM-dd HH:mm:ss.SSS}]-[%c]-[%t] %x - %m%n"></param>  
         </layout>  
     </appender>
+   
 
     <!-- Mybatis and SQL -->
     <logger name="org.apache.ibatis" additivity="true">

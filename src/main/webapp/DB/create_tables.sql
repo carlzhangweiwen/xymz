@@ -1,4 +1,5 @@
-
+--alter the defaut character
+alter database xymz character set utf8;
 --create tables
 DROP TABLE IF EXISTS `tb_user`;
 create table tb_user(

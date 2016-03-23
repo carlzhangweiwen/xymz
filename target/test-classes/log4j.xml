@@ -10,6 +10,7 @@
 		</layout>
 	</appender>
 	
+	
 	<!-- Application Loggers -->
 	<logger name="com.win.xymz">
 		<level value="info" />

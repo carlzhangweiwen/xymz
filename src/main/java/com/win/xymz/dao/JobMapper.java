@@ -1,5 +1,7 @@
 package com.win.xymz.dao;
 
+import java.util.List;
+
 import com.win.xymz.bean.Job;
 
 public interface JobMapper {
@@ -10,6 +12,8 @@ public interface JobMapper {
     int insertSelective(Job record);
 
     Job selectByPrimaryKey(Integer id);
+    
+    List<Job> selectByCompanyId(Integer id);
 
     int updateByPrimaryKeySelective(Job record);
 

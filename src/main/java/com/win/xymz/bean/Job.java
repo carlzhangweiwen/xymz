@@ -242,4 +242,23 @@ public class Job {
     public void setAuditComment(String auditComment) {
         this.auditComment = auditComment;
     }
+
+	@Override
+	public String toString() {
+		return "Job [id=" + id + ", companyid=" + companyid + ", jobtypeid="
+				+ jobtypeid + ", jobtitle=" + jobtitle + ", jobcontent="
+				+ jobcontent + ", salaryAmount=" + salaryAmount
+				+ ", salaryUnitId=" + salaryUnitId + ", workBeginDate="
+				+ workBeginDate + ", workEndDate=" + workEndDate
+				+ ", workBeginTime=" + workBeginTime + ", workEndTime="
+				+ workEndTime + ", jobloction=" + jobloction + ", longitude="
+				+ longitude + ", latitude=" + latitude + ", recruitmentNum="
+				+ recruitmentNum + ", contactsEmail=" + contactsEmail
+				+ ", contactsPerson=" + contactsPerson + ", contactsTel="
+				+ contactsTel + ", createTime=" + createTime + ", updateTime="
+				+ updateTime + ", auditState=" + auditState + ", auditPerson="
+				+ auditPerson + ", auditTime=" + auditTime + ", auditComment="
+				+ auditComment + "]";
+	}
+    
 }

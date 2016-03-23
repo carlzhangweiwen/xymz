@@ -3,6 +3,8 @@ package com.win.xymz.controller;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,6 +20,7 @@ import com.win.xymz.service.CompanyService;
  */
 @Controller
 public class EnterpriseController {
+	private Logger logger = LogManager.getLogger(EnterpriseController.class);
 	@Autowired
 	private  CompanyService companyService;
 
@@ -27,7 +30,7 @@ public class EnterpriseController {
 	 */
 	@RequestMapping(value = "/toReleaseJobs.json")
 	public Map<String,Object> toReleaseJobs(Job job){
-		System.out.println(job);
+		logger.info("===============job:"+job);
 		AjaxReturnInfo ajaxReturnInfo = new AjaxReturnInfo();
 		companyService.insertJob(job);
 		
@@ -38,8 +41,13 @@ public class EnterpriseController {
 	 * 我发布的兼职
 	 * @return
 	 */
-	public List<Job> releaseedJobs(){
-		return null;
+	@RequestMapping(value = "/getReleaseJobs.json")
+	public Map<String,Object> releaseedJobs(){
+		AjaxReturnInfo ajaxReturnInfo = new AjaxReturnInfo();
+		List<Job> jobs= companyService.getByCompanyId(1);
+		logger.info("job list : "+jobs);
+		ajaxReturnInfo.add("jobLIST", jobs);
+		return ajaxReturnInfo.getReturnMap();
 	}
 	
 
